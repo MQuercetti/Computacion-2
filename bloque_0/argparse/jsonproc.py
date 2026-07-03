@@ -183,7 +183,7 @@ def main():
         if not isinstance(data, dict):
             print("Error: --keys requiere un JSON objeto en el nivel superior", file=sys.stderr)
             sys.exit(1)
-        result = "\n".join(sorted(data.keys()))
+        result = "\n".join(data.keys())
         write_output(result, args.output)
         return
 
@@ -197,6 +197,9 @@ def main():
         return
 
     write_output(format_json(data, args.pretty), args.output)
+
+    if args.set and args.output != "-":
+        print(f"Guardado en {args.output}")
 
 
 if __name__ == "__main__":

@@ -6,5 +6,5 @@ if len(sys.argv) < 2:
     sys.exit(1)
 
 nombre = " ".join(sys.argv[1:])
-print(f"Hola mundo, {nombre}")
+print(f"Hola, {nombre}!")
 

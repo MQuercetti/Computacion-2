@@ -1,0 +1,6 @@
+1. Respuesta abierta: depende del entorno.
+2. Respuesta abierta: verificar con stat /etc/passwd.
+3. /dev/null es un dispositivo especial que descarta todo lo que recibe.
+4. Respuesta abierta: depende de la distro.
+5. Respuesta abierta: usar ls -i o stat.
+6. /home suele tener 2 enlaces duros si no hay subdirectorios enlazados.

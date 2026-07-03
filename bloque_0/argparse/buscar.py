@@ -76,16 +76,29 @@ def process_stream(stream, pattern, args, file_label=None, show_file_label=False
     return matches
 
 
+def print_count(matches, file_label=None, show_file_label=False, show_total=False):
+    if show_file_label and file_label is not None:
+        print(f"{file_label}: {matches} coincidencias")
+        return
+
+    if show_total:
+        print(f"Total: {matches} coincidencias")
+        return
+
+    print(f"{matches} coincidencias")
+
+
 def main():
     args = parse_args()
 
     if not args.archivos:
         total = process_stream(sys.stdin, args.patron, args)
         if args.count:
-            print(total)
+            print_count(total)
         return
 
     show_file_label = len(args.archivos) > 1
+    total_matches = 0
 
     for file_name in args.archivos:
         try:
@@ -97,14 +110,15 @@ def main():
                     file_label=file_name,
                     show_file_label=show_file_label,
                 )
+                total_matches += total
 
             if args.count:
-                if show_file_label:
-                    print(f"{file_name}:{total}")
-                else:
-                    print(total)
+                print_count(total, file_name, show_file_label)
         except OSError as error:
             print(f"Error: No se puede leer '{file_name}': {error}", file=sys.stderr)
+
+    if args.count and show_file_label:
+        print_count(total_matches, show_total=True)
 
 
 if __name__ == "__main__":

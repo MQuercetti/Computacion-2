@@ -3,7 +3,7 @@ import json
 import sys
 from pathlib import Path
 
-DATA_FILE = Path(__file__).with_name("tareas_db.json")
+DATA_FILE = Path.home() / ".tareas.json"
 PRIORITIES = ["baja", "media", "alta"]
 
 
@@ -30,6 +30,7 @@ def load_tasks():
 
 def save_tasks(tasks):
     try:
+        DATA_FILE.parent.mkdir(parents=True, exist_ok=True)
         with open(DATA_FILE, "w", encoding="utf-8") as file:
             json.dump(tasks, file, ensure_ascii=False, indent=2)
             file.write("\n")
@@ -108,7 +109,11 @@ def command_add(args):
 
     tasks.append(task)
     save_tasks(tasks)
-    print(f"Tarea agregada con ID {task['id']}")
+
+    if args.priority == "media":
+        print(f"Tarea #{task['id']} agregada")
+    else:
+        print(f"Tarea #{task['id']} agregada (prioridad: {args.priority})")
 
 
 def command_list(args):
@@ -130,7 +135,10 @@ def command_list(args):
 
     for task in filtered:
         status = "x" if task["done"] else " "
-        print(f"[{status}] {task['id']} - ({task['priority']}) {task['descripcion']}")
+        line = f"#{task['id']} [{status}] {task['descripcion']}"
+        if task["priority"] != "media":
+            line += f" [{task['priority'].upper()}]"
+        print(line)
 
 
 def command_done(args):
@@ -143,7 +151,7 @@ def command_done(args):
 
     task["done"] = True
     save_tasks(tasks)
-    print(f"Tarea {args.id} marcada como completada")
+    print(f"Tarea #{args.id} completada")
 
 
 def command_remove(args):
@@ -154,7 +162,7 @@ def command_remove(args):
         print(f"Error: no existe una tarea con ID {args.id}", file=sys.stderr)
         sys.exit(1)
 
-    answer = input(f"Eliminar tarea {args.id}: '{task['descripcion']}'? [s/N]: ").strip().lower()
+    answer = input(f"¿Eliminar \"{task['descripcion']}\"? [s/N] ").strip().lower()
     if answer not in {"s", "si", "y", "yes"}:
         print("Eliminacion cancelada")
         return

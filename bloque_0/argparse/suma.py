@@ -1,17 +1,20 @@
 #1.2
 import sys
 
-if len(sys.argv) < 2:
-    print("Uso: python suma.py <numero1> [numero2] ...")
-    sys.exit(1)
-
 numeros = []
+has_decimal_input = False
+
 for valor in sys.argv[1:]:
     try:
+        if "." in valor or "," in valor:
+            has_decimal_input = True
         numeros.append(float(valor.replace(",", ".")))
     except ValueError:
         print(f"Error: '{valor}' no es un número válido")
         sys.exit(1)
 
 total = sum(numeros)
-print(f"La suma es: {total}")
+if total.is_integer() and not has_decimal_input:
+    total = int(total)
+
+print(f"Suma: {total}")
