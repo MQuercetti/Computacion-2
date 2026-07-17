@@ -1,0 +1,26 @@
+  # Git: no queremos toda la historia adentro de la imagen
+  .git
+  .gitignore
+
+  # Python cache: se regenera solo, no sirve copiarla
+  __pycache__
+  *.pyc
+  *.pyo
+  *.pyd
+
+  # Tests cache: basura que genera pytest
+  .pytest_cache
+
+  # Entorno virtual: ya instalamos todo en requirements.txt
+  .venv
+  venv
+
+  # Editor: configuración personal, no de la app
+  .vscode
+  .idea
+
+  # Secretos: NUNCA subirlos a una imagen
+  .env
+
+  # Logs
+  *.log

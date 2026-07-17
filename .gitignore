@@ -1,0 +1,48 @@
+# Python — cache y builds
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Entornos virtuales
+.venv/
+venv/
+env/
+
+# Pytest
+.pytest_cache/
+.tox/
+htmlcov/
+.coverage
+.coverage.*
+.cache
+
+# Distribuciones
+build/
+dist/
+*.egg-info/
+*.egg
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Entorno y secretos
+.env
+.env.local
+
+# Dumps del monitor (se regeneran en runtime)
+dumps/*.json
+!dumps/.gitkeep
+
+# Builds y salidas temporales
+*.tmp
+*.bak

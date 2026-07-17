@@ -1,0 +1,18 @@
+services:
+  monitor:
+    build: .
+    image: monitor
+    container_name: monitor
+    # TUI interactiva: necesitamos TTY y stdin abiertos.
+    tty: true
+    stdin_open: true
+    # Montamos config.json para que SIGHUP pueda recargarlo sin reconstruir.
+    volumes:
+      - ./config.json:/app/config.json:ro
+      - ./dumps:/app/dumps
+    environment:
+      - MONITOR_CONFIG=/app/config.json
+      - TERM=xterm-256color
+      - PYTHONUNBUFFERED=1
+    # Si muere por error, no entrar en loop infinito reiniciando.
+    restart: "no"
