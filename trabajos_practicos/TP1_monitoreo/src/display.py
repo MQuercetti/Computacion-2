@@ -407,7 +407,9 @@ def display_loop(snapshot, intervalos, verbose_flag, stop_event=None):
                 layout["procs"].update(_armar_lista_procesos(snapshot, estado))
                 layout["detalle"].update(_vista_detalle(snapshot, estado, verbose))
 
-                time.sleep(0.25)  # 4 fps de redibujo
+                # NO usar time.sleep acá: rich.Live ya tiene su propio loop de
+                # refresco a refresh_per_second=4. Dormir desde el hilo principal
+                # desincroniza con ese loop y produce parpadeo visible.
     except KeyboardInterrupt:
         pass
 
