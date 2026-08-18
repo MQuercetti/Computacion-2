@@ -23,6 +23,14 @@ render consume esa queue.
       y stdin de consola). Con un thread daemon, "anda en todos lados".
     - Es lo que hace la consigna: "podés usar threads internamente dentro
       del proceso de display para la entrada de teclado (no es obligatorio)".
+
+Modo cbreak (tty.setcbreak):
+    - En una TTY real desactivamos ICANON/ECHO para que cada tecla llegue
+      sin esperar Enter y para que las flechas (secuencia ESC [ A/B) lleguen
+      crudas. Si stdin no es TTY (pipe/redir) caemos al modo original: las
+      flechas no andan pero el resto funciona.
+    - Los atributos de termios se guardan en tcgetattr y se restauran en
+      un finally para no dejar la consola en estado raro si el thread muere.
 """
 
 import os
@@ -57,38 +65,176 @@ VISTAS = [
 NOMBRE_SLOT = ["resumen", "memoria", "fds", "threads", "senales", "scheduling", "sistema"]
 
 
+# Tokens especiales que produce el thread de teclado cuando detecta
+# secuencias ESC (no son caracteres que el usuario pueda tipear).
+KEY_UP = "KEY_UP"
+KEY_DOWN = "KEY_DOWN"
+KEY_RIGHT = "KEY_RIGHT"
+KEY_LEFT = "KEY_LEFT"
+
+
 def _teclado_thread(q_teclas):
     """Lee teclas de stdin en un thread daemon y las pone en la queue.
 
-    Lee carácter por carácter. La lectura es bloqueante (en este thread),
-    pero como el thread es daemon y separado, no bloquea el render.
+    Si stdin es una TTY real entra en modo cbreak: las teclas llegan de
+    a una, sin necesidad de Enter, y las flechas (ESC [ A/B/C/D) llegan
+    crudas para que las decodifiquemos nosotros.
+    Si stdin no es una TTY (pipe/redir) caemos al modo simple: el resto
+    de los keybindings siguen funcionando, las flechas no.
     """
     try:
         fd = sys.stdin.fileno()
     except (ValueError, OSError):
         return
-    while True:
+
+    is_tty = False
+    old_attrs = None
+    try:
+        is_tty = os.isatty(fd)
+    except (ValueError, OSError):
+        is_tty = False
+
+    if is_tty:
         try:
-            # Leemos 1 byte. Si estamos en tty, va línea por línea y se
-            # comporta más o menos OK; si no, es modo cooked y se complica
-            # para teclas como flechas. Para los básicos (1..7, q, /, c,
-            # +/-, Enter) alcanza.
-            data = os.read(fd, 1)
+            import termios
+            import tty
+            old_attrs = termios.tcgetattr(fd)
+            tty.setcbreak(fd)
+        except (ImportError, termios.error, OSError):
+            old_attrs = None
+            is_tty = False
+
+    try:
+        while True:
+            try:
+                data = os.read(fd, 1)
+            except (OSError, ValueError):
+                time.sleep(0.1)
+                continue
             if not data:
                 break
-            q_teclas.put(data.decode("utf-8", errors="replace"))
-        except (OSError, ValueError):
-            # Si el read falla (tty cerrado, etc.) salimos silencioso.
-            time.sleep(0.1)
+            b = data[0]
+
+            # Secuencias ESC: flechas y demás.
+            # Típica: ESC [ A (up) / B (down) / C (right) / D (left).
+            if b == 0x1b:
+                try:
+                    seq = os.read(fd, 1)
+                except (OSError, ValueError):
+                    q_teclas.put("\x1b")
+                    continue
+                if not seq or seq[0] != ord(b"["):
+                    # ESC suelto (sin `[`) → devolvemos ESC como token.
+                    q_teclas.put("\x1b")
+                    continue
+                try:
+                    seq2 = os.read(fd, 1)
+                except (OSError, ValueError):
+                    continue
+                if not seq2:
+                    continue
+                if seq2 == b"A":
+                    q_teclas.put(KEY_UP)
+                elif seq2 == b"B":
+                    q_teclas.put(KEY_DOWN)
+                elif seq2 == b"C":
+                    q_teclas.put(KEY_RIGHT)
+                elif seq2 == b"D":
+                    q_teclas.put(KEY_LEFT)
+                # Otras secuencias (F1..F12, Page Up/Down) las descartamos
+                # porque el dispatcher no las usa.
+                continue
+
+            if b == 0x0d or b == 0x0a:
+                q_teclas.put("\r")          # Enter
+            elif b == 0x7f or b == 0x08:
+                q_teclas.put("\x7f")        # Backspace
+            elif b == 0x03:
+                # Ctrl+C → cerramos limpio como si fuera `q`.
+                q_teclas.put("q")
+                break
+            elif 0x20 <= b < 0x7f:
+                q_teclas.put(chr(b))
+            # Otros bytes de control (tab, etc.) los ignoramos.
+    finally:
+        if old_attrs is not None:
+            try:
+                import termios
+                termios.tcsetattr(fd, termios.TCSAFLUSH, old_attrs)
+            except (ImportError, termios.error, OSError):
+                pass
+
+
+def _procs_visibles(snapshot, estado):
+    """Devuelve la lista de PIDs que pasan los filtros y están en el
+    mismo orden en que se renderizan.
+
+    Una sola fuente de verdad para que la navegación (↑↓), el pin (Enter)
+    y el filtro (cmd/uid) se comporten igual.
+    """
+    _, datos = leer_slot(snapshot, "resumen")
+    if not datos:
+        return []
+
+    procs = []
+    for pid, info in datos.items():
+        if estado.get("filtro_cmd") and estado["filtro_cmd"] not in (info.get("comando") or ""):
             continue
+        if estado.get("filtro_uid") and estado.get("filtro_uid") != info.get("uid", ""):
+            continue
+        procs.append(pid)
+
+    clave = estado["ordenado_por"]
+    if clave != "pid":
+        procs.sort(key=lambda p: datos[p].get(clave, 0), reverse=True)
+    else:
+        procs.sort()
+    return procs
 
 
-def _procesar_tecla(tecla, estado):
+def _pid_seleccionado(snapshot, estado):
+    """Devuelve el PID de la fila actualmente seleccionada, o None."""
+    procs = _procs_visibles(snapshot, estado)
+    if not procs:
+        return None
+    idx = min(estado.get("seleccion", 0), len(procs) - 1)
+    if idx < 0:
+        idx = 0
+    return procs[idx]
+
+
+def _procesar_tecla(tecla, estado, snapshot):
     """Actualiza el estado de la TUI según la tecla recibida.
 
     estado es un dict con: vista, intervalo_idx, ordenado_por, filtro_cmd,
-    pin, verbose, last_msg, last_msg_ts.
+    filtro_uid, pin, seleccion, modo_input, buffer_input, verbose, last_msg,
+    last_msg_ts.
+
+    Si estamos en modo_input (filtro_cmd o filtro_uid esperando string),
+    toda tecla alimenta el buffer hasta Enter (confirma) o Esc (cancela).
     """
+    # Modo input: capturar caracteres hasta Enter/Esc.
+    if estado.get("modo_input"):
+        destino = estado["modo_input"]
+        if tecla == "\r":                            # Enter → confirmar
+            estado[destino] = estado.get("buffer_input", "")
+            estado["modo_input"] = None
+            estado["buffer_input"] = ""
+            estado["last_msg"] = f"{destino} = '{estado[destino]}'"
+            estado["last_msg_ts"] = time.time()
+        elif tecla == "\x1b":                        # Esc → cancelar
+            estado["modo_input"] = None
+            estado["buffer_input"] = ""
+            estado["last_msg"] = "input cancelado"
+            estado["last_msg_ts"] = time.time()
+        elif tecla == "\x7f":                        # Backspace
+            estado["buffer_input"] = estado.get("buffer_input", "")[:-1]
+        elif len(tecla) == 1 and tecla.isprintable():
+            estado["buffer_input"] = estado.get("buffer_input", "") + tecla
+        # cualquier otra tecla se ignora mientras estamos en input
+        return
+
+    # Teclas que no respetan modo_input (siempre disponibles).
     if tecla in ("1", "2", "3", "4", "5", "6", "7"):
         estado["vista"] = int(tecla) - 1
     elif tecla in ("r", "m", "f", "t", "s", "p", "g"):
@@ -114,6 +260,40 @@ def _procesar_tecla(tecla, estado):
             estado["intervalos"][NOMBRE_SLOT[idx]].value = min(60.0, actual * 1.5)
             estado["last_msg"] = f"intervalo {NOMBRE_SLOT[idx]} → {estado['intervalos'][NOMBRE_SLOT[idx]].value:.2f}s"
             estado["last_msg_ts"] = time.time()
+    elif tecla == KEY_UP:
+        if estado.get("seleccion", 0) > 0:
+            estado["seleccion"] -= 1
+    elif tecla == KEY_DOWN:
+        # El límite superior lo clampamos en el render.
+        estado["seleccion"] = estado.get("seleccion", 0) + 1
+    elif tecla == "\r":                              # Enter → pin
+        pid_sel = _pid_seleccionado(snapshot, estado)
+        if pid_sel is not None:
+            estado["pin"] = None if estado.get("pin") == pid_sel else pid_sel
+            estado["last_msg"] = f"pin = {estado['pin']}"
+            estado["last_msg_ts"] = time.time()
+    elif tecla == "\x1b":                            # Esc → soltar pin si hay
+        if estado.get("pin") is not None:
+            estado["pin"] = None
+            estado["last_msg"] = "pin soltado"
+            estado["last_msg_ts"] = time.time()
+    elif tecla == "/":
+        estado["modo_input"] = "filtro_cmd"
+        estado["buffer_input"] = estado.get("filtro_cmd", "")
+        estado["last_msg"] = "filtro cmd: tipear y Enter (Esc cancela)"
+        estado["last_msg_ts"] = time.time()
+    elif tecla == "u":
+        estado["modo_input"] = "filtro_uid"
+        estado["buffer_input"] = estado.get("filtro_uid", "")
+        estado["last_msg"] = "filtro uid: tipear y Enter (Esc cancela)"
+        estado["last_msg_ts"] = time.time()
+    elif tecla == "h" or tecla == "?":
+        estado["last_msg"] = (
+            "1-7: vista | c: orden | +/-: intervalo | "
+            "/: filtro cmd | u: filtro uid | "
+            "Arriba/Abajo: navegar | Enter: pin | q: salir"
+        )
+        estado["last_msg_ts"] = time.time()
 
 
 def _armar_lista_procesos(snapshot, estado):
@@ -125,46 +305,69 @@ def _armar_lista_procesos(snapshot, estado):
         return Panel(Text("Esperando primer ciclo del analizador de resumen...",
                           style="dim"), title="Procesos")
 
-    # Filtrar y ordenar.
-    procs = []
-    for pid, info in datos.items():
-        if estado["filtro_cmd"] and estado["filtro_cmd"] not in info.get("comando", ""):
-            continue
-        rss = mem.get(pid, {}).get("vm_rss", 0)
-        cpu = info.get("cpu_pct", 0)
-        procs.append({
-            "pid": pid,
-            "estado": info.get("estado", "?"),
-            "comando": (info.get("comando", "") or "")[:50],
-            "comm": info.get("comm", ""),
-            "threads": info.get("threads", 0),
-            "cpu": cpu,
-            "rss": rss,
-        })
+    procs = _procs_visibles(snapshot, estado)
+    if not procs:
+        return Panel(Text("Ningún proceso pasa los filtros activos.",
+                          style="dim"), title="Procesos")
 
-    clave = estado["ordenado_por"]
-    procs.sort(key=lambda p: p.get(clave, 0) if clave != "pid" else p["pid"],
-               reverse=(clave != "pid"))
+    # Mantener la selección dentro del rango visible.
+    if estado.get("seleccion", 0) >= len(procs):
+        estado["seleccion"] = len(procs) - 1
+    if estado.get("seleccion", 0) < 0:
+        estado["seleccion"] = 0
+    sel_pid = procs[estado["seleccion"]]
+    pin_pid = estado.get("pin")
 
     tabla = Table(show_header=True, header_style="bold cyan", expand=True)
-    tabla.add_column("PID", justify="right", style="cyan", no_wrap=True, width=6)
+    tabla.add_column("PID", justify="right", style="cyan", no_wrap=True, width=8)
     tabla.add_column("S", width=1)
     tabla.add_column("CPU%", justify="right", width=6)
     tabla.add_column("RSS(MB)", justify="right", width=8)
     tabla.add_column("THR", justify="right", width=4)
     tabla.add_column("Comando", overflow="ellipsis")
 
-    for p in procs[:30]:  # máximo 30 filas para que entre en pantalla
+    filas = []
+    for pid in procs[:30]:  # máximo 30 filas para que entre en pantalla
+        info = datos.get(pid, {})
+        filas.append({
+            "pid": pid,
+            "estado": info.get("estado", "?"),
+            "comando": (info.get("comando", "") or "")[:50],
+            "comm": info.get("comm", ""),
+            "threads": info.get("threads", 0),
+            "cpu": info.get("cpu_pct", 0.0),
+            "rss": mem.get(pid, {}).get("vm_rss", 0),
+            "uid": info.get("uid", "?"),
+        })
+
+    pin_en_pantalla = any(f["pid"] == pin_pid for f in filas)
+    for f in filas:
+        marca = ""
+        style = None
+        if f["pid"] == sel_pid:
+            marca = "→"
+            style = "bold yellow"
+        if f["pid"] == pin_pid:
+            marca = (marca + "★").lstrip("→") or "★"
+            style = "bold magenta" if style is None else style
+
         tabla.add_row(
-            str(p["pid"]),
-            p["estado"],
-            f"{p['cpu']:.1f}",
-            f"{p['rss'] / 1024:.1f}",
-            str(p["threads"]),
-            p["comando"] or p["comm"],
+            f"{marca}{f['pid']}",
+            f["estado"],
+            f"{f['cpu']:.1f}",
+            f"{f['rss'] / 1024:.1f}",
+            str(f["threads"]),
+            f["comando"] or f["comm"],
+            style=style,
         )
 
-    titulo = f"Procesos ({len(procs)} total) — orden: {estado['ordenado_por']}"
+    extras = []
+    if pin_pid is not None and not pin_en_pantalla:
+        extras.append(f"pin=PID {pin_pid} (fuera de vista)")
+    extras.append(f"seleccion={sel_pid}")
+    titulo = (f"Procesos ({len(procs)} total, "
+              f"mostrando {len(filas)}) — orden: {estado['ordenado_por']} — "
+              f"{' | '.join(extras)}")
     return Panel(tabla, title=titulo, border_style="cyan")
 
 
@@ -232,8 +435,12 @@ def _render_memoria(datos, verbose):
     tabla.add_column("VmSwap", justify="right", width=10)
     tabla.add_column("MinFlt", justify="right", width=8)
     tabla.add_column("MajFlt", justify="right", width=8)
+    tabla.add_column("Segmentos top", overflow="ellipsis")
     for pid in sorted(datos.keys())[:25]:
         d = datos[pid]
+        segmentos = d.get("segmentos", {})
+        top_seg = sorted(segmentos.items(), key=lambda kv: kv[1], reverse=True)[:2]
+        seg_txt = ", ".join(f"{n[:18]}={b/1024:.0f}K" for n, b in top_seg) if top_seg else "?"
         tabla.add_row(
             str(pid),
             f"{d.get('vm_size', 0) / 1024:.1f} MB",
@@ -242,6 +449,7 @@ def _render_memoria(datos, verbose):
             f"{d.get('vm_swap', 0) / 1024:.1f} MB",
             str(d.get("minflt", 0)),
             str(d.get("majflt", 0)),
+            seg_txt,
         )
     return tabla
 
@@ -343,9 +551,15 @@ def _render_sistema(snapshot, verbose):
     top_cpu = datos.get("top_cpu", [])
     top_mem = datos.get("top_mem", [])
     if top_cpu:
-        texto.append("\nTop CPU: " + ", ".join(str(x) for x in top_cpu) + "\n")
+        texto.append("\nTop CPU:")
+        for pid, cpu in top_cpu:
+            texto.append(f"  PID {pid} ({cpu:.1f}%)", style="cyan")
+        texto.append("\n")
     if top_mem:
-        texto.append("Top MEM: " + ", ".join(str(x) for x in top_mem) + "\n")
+        texto.append("Top MEM:")
+        for pid, rss in top_mem:
+            texto.append(f"  PID {pid} ({rss / 1024:.1f} MB)", style="magenta")
+        texto.append("\n")
 
     return texto
 
@@ -354,8 +568,13 @@ def _armar_header(estado):
     ahora = datetime.now().strftime("%H:%M:%S")
     idx = estado["vista"]
     nombre = VISTAS[idx][2]
-    help_ = "1-7: vista  c: orden  +-: intervalo  q: salir"
-    if estado.get("last_msg") and (time.time() - estado.get("last_msg_ts", 0)) < 3:
+    help_ = "1-7: vista  c: orden  +-: intervalo  /u: filtros  ↑↓: nav  Enter: pin  h/?  q: salir"
+    # Si estamos en modo input, mostramos el buffer.
+    if estado.get("modo_input"):
+        destino = estado["modo_input"]
+        buf = estado.get("buffer_input", "")
+        help_ = f"[INPUT {destino}: {buf}_]  (Enter confirma, Esc cancela)"
+    elif estado.get("last_msg") and (time.time() - estado.get("last_msg_ts", 0)) < 3:
         help_ = estado["last_msg"] + "  |  " + help_
     return Panel(
         Text(f"Monitor TP1 — {ahora}  |  Vista {idx+1}: {nombre}  |  {help_}",
@@ -371,7 +590,11 @@ def display_loop(snapshot, intervalos, verbose_flag, stop_event=None):
         "vista": 0,
         "ordenado_por": "cpu_pct",
         "filtro_cmd": "",
+        "filtro_uid": "",
         "pin": None,
+        "seleccion": 0,
+        "modo_input": None,
+        "buffer_input": "",
         "salir": False,
         "intervalos": intervalos,
         "verbose": verbose_flag,
@@ -400,7 +623,7 @@ def display_loop(snapshot, intervalos, verbose_flag, stop_event=None):
                         tecla = q_teclas.get_nowait()
                     except queue.Empty:
                         break
-                    _procesar_tecla(tecla, estado)
+                    _procesar_tecla(tecla, estado, snapshot)
 
                 verbose = verbose_flag.value if hasattr(verbose_flag, "value") else False
                 layout["header"].update(_armar_header(estado))
@@ -444,7 +667,7 @@ if __name__ == "__main__":
                 "loadavg": {"1min": 0.5, "5min": 0.4, "15min": 0.3},
                 "total_procesos": 2, "total_threads": 5, "zombies": 0,
                 "conteo_estados": {"S": 1, "R": 1},
-                "top_cpu": [], "top_mem": [],
+                "top_cpu": [(100, 12.5)], "top_mem": [(100, 30000)],
             },
         },
     }

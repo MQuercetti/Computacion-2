@@ -30,18 +30,10 @@ def analizar(pids, snapshot, intervalos, verbose):
                 "SigCgt": status.get("SigCgt", "0"),
                 "SigPnd": status.get("SigPnd", "0"),
                 "ShdPnd": status.get("ShdPnd", "0"),
-                # Las listas decodificadas se completan en el # TODO de abajo.
-                "SigBlk_nombres": [],
-                "SigIgn_nombres": [],
-                "SigCgt_nombres": [],
+                "SigBlk_nombres": procfs.decodificar_mascara_senales(status.get("SigBlk", "0")),
+                "SigIgn_nombres": procfs.decodificar_mascara_senales(status.get("SigIgn", "0")),
+                "SigCgt_nombres": procfs.decodificar_mascara_senales(status.get("SigCgt", "0")),
             }
 
         escribir_slot(snapshot, "senales", datos)
         time.sleep(max(0.1, intervalos["senales"].value))
-
-
-# TODO: usar procfs.decodificar_mascara_senales(mascara_hex) que está en procfs.py
-# para llenar los campos *_nombres. Llamala 4 veces: una por cada máscara.
-# La consigna te va a preguntar "¿Cómo decodificás SigBlk para mostrar SIGINT
-# legible?" — la respuesta es: a partir de los bits del entero, índice 0 = SIGHUP,
-# índice 1 = SIGINT, etc. La función SIGNAMES de procfs.py ya tiene el mapeo.

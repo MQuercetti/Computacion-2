@@ -12,7 +12,7 @@ Lee /proc/{stat,meminfo,loadavg,uptime} y agrega contadores globales:
 import os
 import time
 from .. import procfs
-from ..agregador import escribir_slot
+from ..agregador import escribir_slot, leer_slot
 
 
 def analizar(pids, snapshot, intervalos, verbose):
@@ -48,6 +48,24 @@ def analizar(pids, snapshot, intervalos, verbose):
             if estado == "Z":
                 zombies += 1
 
+        # Top 3 por CPU y por memoria: derivamos del snapshot que ya
+        # escribieron los analizadores de resumen/memoria (no volvemos a
+        # leer /proc). Copiamos a dict local antes de ordenar porque el
+        # Manager.dict puede mutar entre lecturas.
+        _, resumen_slot = leer_slot(snapshot, "resumen")
+        _, memoria_slot = leer_slot(snapshot, "memoria")
+        resumen_datos = dict(resumen_slot.get("datos", {}))
+        memoria_datos = dict(memoria_slot.get("datos", {}))
+
+        top_cpu = sorted(
+            ((d.get("cpu_pct", 0.0), p) for p, d in resumen_datos.items()),
+            reverse=True,
+        )[:3]
+        top_mem = sorted(
+            ((d.get("vm_rss", 0), p) for p, d in memoria_datos.items()),
+            reverse=True,
+        )[:3]
+
         datos = {
             "cpu_pct": cpu_pct,
             "cpu_campos": cpu_actual,
@@ -65,8 +83,8 @@ def analizar(pids, snapshot, intervalos, verbose):
             "conteo_estados": conteo_estados,
             "total_threads": total_threads,
             "zombies": zombies,
-            "top_cpu": [],     # TODO: derivar de snapshot['resumen']
-            "top_mem": [],     # TODO: derivar de snapshot['memoria']
+            "top_cpu": [(pid, cpu) for cpu, pid in top_cpu],
+            "top_mem": [(pid, rss) for rss, pid in top_mem],
             "n_cpus": os.cpu_count() or 1,
         }
 
@@ -99,13 +117,3 @@ def _cpu_pct_global(actual, previo, t_prev):
     if delta_total <= 0:
         return 0.0
     return round(100.0 * delta_busy / delta_total, 2)
-
-
-# TODO: para el top 3 por CPU y por memoria, en vez de volver a leer /proc,
-# usá los datos que ya escribieron los analizadores de 'resumen' y 'memoria'
-# en el snapshot. Hacé snapshot['resumen']['datos'] y snapshot['memoria']['datos'],
-# ordenalos por cpu_pct y vm_rss respectivamente, y quedate con los 3 primeros.
-#
-# Ojo: el Manager.dict se accede con corchetes — el lock interno se encarga
-# de la coherencia, pero igual es buena idea copiar el dict a un dict local
-# antes de ordenarlo (sorted() puede romperse si el dict cambia mientras itera).

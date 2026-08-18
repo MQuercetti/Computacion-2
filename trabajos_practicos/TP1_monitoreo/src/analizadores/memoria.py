@@ -33,7 +33,7 @@ def analizar(pids, snapshot, intervalos, verbose):
                 "vm_swap": _parse_kb(status.get("VmSwap", "0 kB")),
                 "minflt": stat.get("minflt", 0),
                 "majflt": stat.get("majflt", 0),
-                "segmentos": {},  # TODO: parsear /proc/<pid>/maps
+                "segmentos": procfs.leer_maps(pid),
             }
 
         escribir_slot(snapshot, "memoria", datos)
@@ -46,10 +46,3 @@ def _parse_kb(texto):
         return int(texto.split()[0])
     except (ValueError, IndexError):
         return 0
-
-
-# TODO: leer /proc/<pid>/maps y agrupar por permisos y por nombre ([heap],
-# [stack], [vdso], etc). Cada línea tiene formato:
-#   dirección_permisos offset dev inode nombre
-#   ej: 55a8b2a00000-55a8b2a21000 r--p 00000000 08:01 1234                       /usr/bin/python3
-# Agrupar las que tengan el mismo path o nombre de sección y sumar tamaños.

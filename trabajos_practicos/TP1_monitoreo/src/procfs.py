@@ -337,6 +337,52 @@ def decodificar_mascara_senales(mascara_hex):
     return activas
 
 
+def leer_maps(pid):
+    """Lee /proc/<pid>/maps y devuelve un dict agrupado por etiqueta.
+
+    Formato de cada línea:
+        dirección_permisos offset dev inode nombre
+        ej: 55a8b2a00000-55a8b2a21000 r--p 00000000 08:01 1234  /usr/bin/python3
+            7fff12345000-7fff12346000 rw-p 00000000 00:00 0     [stack]
+
+    Devuelve {etiqueta: bytes_totales}. La etiqueta es:
+      - "[heap]", "[stack]", "[vdso]", "[vvar]", "[vsyscall]" si el nombre
+        empieza con "[";
+      - el path completo del archivo (puede aparecer duplicado y se suman
+        los tamaños);
+      - "[anon]" si la línea no tiene nombre.
+
+    Si el proceso murió entre listar_pids() y leer_maps(), devuelve {}.
+    """
+    ruta = f"/proc/{pid}/maps"
+    out = {}
+    try:
+        with open(ruta, "r") as f:
+            for linea in f:
+                partes = linea.split()
+                if len(partes) < 5:
+                    continue
+                # partes[0] = inicio-fin en hex
+                try:
+                    inicio_str, fin_str = partes[0].split("-", 1)
+                    tam = int(fin_str, 16) - int(inicio_str, 16)
+                except ValueError:
+                    continue
+                if tam <= 0:
+                    continue
+                if len(partes) >= 6:
+                    # El nombre puede tener espacios: juntamos desde el
+                    # sexto token en adelante. Si el nombre empieza con "["
+                    # es una sección (heap/stack/vdso/...).
+                    nombre = " ".join(partes[5:])
+                else:
+                    nombre = "[anon]"
+                out[nombre] = out.get(nombre, 0) + tam
+    except (FileNotFoundError, ProcessLookupError, PermissionError):
+        return {}
+    return out
+
+
 # TODO: para que el monitor pueda calcular CPU% de un proceso a partir de
 # /proc/<pid>/stat necesita DOS lecturas separadas en el tiempo (utime+stime
 # son jiffies ACUMULADOS desde que arrancó el proceso). El analizador tiene que

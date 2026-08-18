@@ -1,0 +1,2421 @@
+{
+  "resumen": {
+    "ts": 1787094769.5309515,
+    "datos": {
+      "1": {
+        "pid": 1,
+        "ppid": 0,
+        "estado": "S",
+        "comm": "python",
+        "comando": "python -m src.main",
+        "threads": 1,
+        "uid": "0",
+        "utime": 11,
+        "stime": 10,
+        "cpu_pct": 0.0
+      },
+      "7": {
+        "pid": 7,
+        "ppid": 1,
+        "estado": "S",
+        "comm": "python",
+        "comando": "/usr/local/bin/python -c from multiprocessing.resource_tracker import main;main(5)",
+        "threads": 1,
+        "uid": "0",
+        "utime": 3,
+        "stime": 1,
+        "cpu_pct": 0.0
+      },
+      "8": {
+        "pid": 8,
+        "ppid": 1,
+        "estado": "S",
+        "comm": "python",
+        "comando": "/usr/local/bin/python -c from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=6, pipe_handle=8) --multipr",
+        "threads": 11,
+        "uid": "0",
+        "utime": 3276,
+        "stime": 1835,
+        "cpu_pct": 74.85
+      },
+      "14": {
+        "pid": 14,
+        "ppid": 1,
+        "estado": "S",
+        "comm": "python",
+        "comando": "/usr/local/bin/python -c from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=6, pipe_handle=11) --multip",
+        "threads": 4,
+        "uid": "0",
+        "utime": 7333,
+        "stime": 10666,
+        "cpu_pct": 258.84
+      },
+      "51": {
+        "pid": 51,
+        "ppid": 1,
+        "estado": "S",
+        "comm": "python",
+        "comando": "/usr/local/bin/python -c from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=6, pipe_handle=16) --multip",
+        "threads": 2,
+        "uid": "0",
+        "utime": 14,
+        "stime": 7,
+        "cpu_pct": 0.0
+      },
+      "52": {
+        "pid": 52,
+        "ppid": 1,
+        "estado": "R",
+        "comm": "python",
+        "comando": "/usr/local/bin/python -c from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=6, pipe_handle=18) --multip",
+        "threads": 1,
+        "uid": "0",
+        "utime": 33,
+        "stime": 19,
+        "cpu_pct": 0.0
+      },
+      "53": {
+        "pid": 53,
+        "ppid": 1,
+        "estado": "S",
+        "comm": "python",
+        "comando": "/usr/local/bin/python -c from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=6, pipe_handle=20) --multip",
+        "threads": 1,
+        "uid": "0",
+        "utime": 58,
+        "stime": 28,
+        "cpu_pct": 3.12
+      },
+      "54": {
+        "pid": 54,
+        "ppid": 1,
+        "estado": "S",
+        "comm": "python",
+        "comando": "/usr/local/bin/python -c from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=6, pipe_handle=22) --multip",
+        "threads": 1,
+        "uid": "0",
+        "utime": 19,
+        "stime": 9,
+        "cpu_pct": 3.12
+      },
+      "55": {
+        "pid": 55,
+        "ppid": 1,
+        "estado": "S",
+        "comm": "python",
+        "comando": "/usr/local/bin/python -c from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=6, pipe_handle=24) --multip",
+        "threads": 1,
+        "uid": "0",
+        "utime": 35,
+        "stime": 19,
+        "cpu_pct": 3.12
+      },
+      "56": {
+        "pid": 56,
+        "ppid": 1,
+        "estado": "S",
+        "comm": "python",
+        "comando": "/usr/local/bin/python -c from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=6, pipe_handle=26) --multip",
+        "threads": 1,
+        "uid": "0",
+        "utime": 16,
+        "stime": 4,
+        "cpu_pct": 0.0
+      },
+      "57": {
+        "pid": 57,
+        "ppid": 1,
+        "estado": "S",
+        "comm": "python",
+        "comando": "/usr/local/bin/python -c from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=6, pipe_handle=28) --multip",
+        "threads": 1,
+        "uid": "0",
+        "utime": 14,
+        "stime": 7,
+        "cpu_pct": 0.0
+      },
+      "58": {
+        "pid": 58,
+        "ppid": 1,
+        "estado": "S",
+        "comm": "python",
+        "comando": "/usr/local/bin/python -c from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=6, pipe_handle=30) --multip",
+        "threads": 1,
+        "uid": "0",
+        "utime": 37,
+        "stime": 19,
+        "cpu_pct": 3.12
+      },
+      "59": {
+        "pid": 59,
+        "ppid": 1,
+        "estado": "S",
+        "comm": "python",
+        "comando": "/usr/local/bin/python -c from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=6, pipe_handle=32) --multip",
+        "threads": 2,
+        "uid": "0",
+        "utime": 12593,
+        "stime": 8524,
+        "cpu_pct": 308.74
+      }
+    }
+  },
+  "memoria": {
+    "ts": 1787094768.706793,
+    "datos": {
+      "1": {
+        "vm_size": 32032,
+        "vm_rss": 26108,
+        "vm_data": 15472,
+        "vm_stk": 132,
+        "vm_exe": 4,
+        "vm_lib": 9140,
+        "vm_hwm": 26108,
+        "vm_swap": 0,
+        "minflt": 5381,
+        "majflt": 0,
+        "segmentos": {
+          "/usr/local/bin/python3.11": 20480,
+          "[heap]": 4812800,
+          "/dev/shm/sem.CDBvzI (deleted)": 4096,
+          "/usr/local/lib/python3.11/lib-dynload/_posixshmem.cpython-311-x86_64-linux-gnu.so": 20480,
+          "/usr/local/lib/python3.11/lib-dynload/_blake2.cpython-311-x86_64-linux-gnu.so": 53248,
+          "/usr/lib/x86_64-linux-gnu/libzstd.so.1.5.7": 827392,
+          "/usr/lib/x86_64-linux-gnu/libcrypto.so.3": 6516736,
+          "[anon]": 9592832,
+          "/usr/local/lib/python3.11/lib-dynload/_hashlib.cpython-311-x86_64-linux-gnu.so": 65536,
+          "/usr/local/lib/python3.11/lib-dynload/binascii.cpython-311-x86_64-linux-gnu.so": 36864,
+          "/usr/local/lib/python3.11/lib-dynload/mmap.cpython-311-x86_64-linux-gnu.so": 36864,
+          "/usr/local/lib/python3.11/lib-dynload/_posixsubprocess.cpython-311-x86_64-linux-gnu.so": 32768,
+          "/usr/local/lib/python3.11/lib-dynload/fcntl.cpython-311-x86_64-linux-gnu.so": 28672,
+          "/usr/lib/x86_64-linux-gnu/liblzma.so.5.8.1": 200704,
+          "/usr/lib/x86_64-linux-gnu/libz.so.1.3.1": 131072,
+          "/dev/shm/sem.5FgtMc (deleted)": 4096,
+          "/dev/shm/sem.gHDkrH (deleted)": 4096,
+          "/usr/local/lib/python3.11/lib-dynload/zlib.cpython-311-x86_64-linux-gnu.so": 45056,
+          "/usr/local/lib/python3.11/lib-dynload/_decimal.cpython-311-x86_64-linux-gnu.so": 286720,
+          "/usr/local/lib/python3.11/lib-dynload/_sha512.cpython-311-x86_64-linux-gnu.so": 36864,
+          "/usr/local/lib/python3.11/lib-dynload/_random.cpython-311-x86_64-linux-gnu.so": 24576,
+          "/usr/local/lib/python3.11/lib-dynload/_bisect.cpython-311-x86_64-linux-gnu.so": 20480,
+          "/usr/local/lib/python3.11/lib-dynload/_opcode.cpython-311-x86_64-linux-gnu.so": 20480,
+          "/usr/local/lib/python3.11/lib-dynload/_typing.cpython-311-x86_64-linux-gnu.so": 20480,
+          "/usr/local/lib/python3.11/lib-dynload/_datetime.cpython-311-x86_64-linux-gnu.so": 110592,
+          "/usr/local/lib/python3.11/lib-dynload/_queue.cpython-311-x86_64-linux-gnu.so": 24576,
+          "/usr/local/lib/python3.11/lib-dynload/_heapq.cpython-311-x86_64-linux-gnu.so": 32768,
+          "/usr/local/lib/python3.11/lib-dynload/array.cpython-311-x86_64-linux-gnu.so": 65536,
+          "/usr/local/lib/python3.11/lib-dynload/select.cpython-311-x86_64-linux-gnu.so": 36864,
+          "/usr/local/lib/python3.11/lib-dynload/math.cpython-311-x86_64-linux-gnu.so": 65536,
+          "/dev/shm/sem.NXRZVv (deleted)": 4096,
+          "/dev/shm/sem.eFkWwY (deleted)": 4096,
+          "/dev/shm/sem.HBCdVF (deleted)": 4096,
+          "/dev/shm/sem.3Uy8kT (deleted)": 4096,
+          "/usr/local/lib/python3.11/lib-dynload/_multiprocessing.cpython-311-x86_64-linux-gnu.so": 24576,
+          "/usr/local/lib/python3.11/lib-dynload/_lzma.cpython-311-x86_64-linux-gnu.so": 49152,
+          "/usr/lib/x86_64-linux-gnu/libbz2.so.1.0.4": 77824,
+          "/dev/shm/sem.Nj3NfH (deleted)": 4096,
+          "/dev/shm/sem.hdKA7o (deleted)": 4096,
+          "/usr/local/lib/python3.11/lib-dynload/_bz2.cpython-311-x86_64-linux-gnu.so": 32768,
+          "/usr/local/lib/python3.11/lib-dynload/_socket.cpython-311-x86_64-linux-gnu.so": 98304,
+          "/usr/local/lib/python3.11/lib-dynload/_pickle.cpython-311-x86_64-linux-gnu.so": 118784,
+          "/usr/local/lib/python3.11/lib-dynload/_struct.cpython-311-x86_64-linux-gnu.so": 53248,
+          "/usr/local/lib/python3.11/lib-dynload/_json.cpython-311-x86_64-linux-gnu.so": 49152,
+          "/usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache": 28672,
+          "/usr/lib/locale/C.utf8/LC_CTYPE": 368640,
+          "/usr/lib/x86_64-linux-gnu/libm.so.6": 983040,
+          "/usr/lib/x86_64-linux-gnu/libc.so.6": 1994752,
+          "/usr/local/lib/libpython3.11.so.1.0": 5324800,
+          "[vvar]": 16384,
+          "[vvar_vclock]": 8192,
+          "[vdso]": 8192,
+          "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2": 225280,
+          "[stack]": 135168
+        }
+      },
+      "7": {
+        "vm_size": 14752,
+        "vm_rss": 11880,
+        "vm_data": 6608,
+        "vm_stk": 132,
+        "vm_exe": 4,
+        "vm_lib": 4184,
+        "vm_hwm": 11880,
+        "vm_swap": 0,
+        "minflt": 1614,
+        "majflt": 0,
+        "segmentos": {
+          "/usr/local/bin/python3.11": 20480,
+          "[heap]": 1318912,
+          "/usr/local/lib/python3.11/lib-dynload/_posixshmem.cpython-311-x86_64-linux-gnu.so": 20480,
+          "/usr/local/lib/python3.11/lib-dynload/_multiprocessing.cpython-311-x86_64-linux-gnu.so": 24576,
+          "/usr/local/lib/python3.11/lib-dynload/_posixsubprocess.cpython-311-x86_64-linux-gnu.so": 32768,
+          "/usr/local/lib/python3.11/lib-dynload/fcntl.cpython-311-x86_64-linux-gnu.so": 28672,
+          "/usr/local/lib/python3.11/lib-dynload/array.cpython-311-x86_64-linux-gnu.so": 65536,
+          "/usr/local/lib/python3.11/lib-dynload/select.cpython-311-x86_64-linux-gnu.so": 36864,
+          "/usr/local/lib/python3.11/lib-dynload/math.cpython-311-x86_64-linux-gnu.so": 65536,
+          "[anon]": 4128768,
+          "/usr/local/lib/python3.11/lib-dynload/_socket.cpython-311-x86_64-linux-gnu.so": 98304,
+          "/usr/local/lib/python3.11/lib-dynload/_pickle.cpython-311-x86_64-linux-gnu.so": 118784,
+          "/usr/local/lib/python3.11/lib-dynload/_struct.cpython-311-x86_64-linux-gnu.so": 53248,
+          "/usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache": 28672,
+          "/usr/lib/locale/C.utf8/LC_CTYPE": 368640,
+          "/usr/lib/x86_64-linux-gnu/libm.so.6": 983040,
+          "/usr/lib/x86_64-linux-gnu/libc.so.6": 1994752,
+          "/usr/local/lib/libpython3.11.so.1.0": 5324800,
+          "[vvar]": 16384,
+          "[vvar_vclock]": 8192,
+          "[vdso]": 8192,
+          "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2": 225280,
+          "[stack]": 135168
+        }
+      },
+      "8": {
+        "vm_size": 768044,
+        "vm_rss": 24888,
+        "vm_data": 97504,
+        "vm_stk": 132,
+        "vm_exe": 4,
+        "vm_lib": 9140,
+        "vm_hwm": 24888,
+        "vm_swap": 0,
+        "minflt": 3846,
+        "majflt": 0,
+        "segmentos": {
+          "/usr/local/bin/python3.11": 20480,
+          "[heap]": 3346432,
+          "[anon]": 764772352,
+          "/usr/local/lib/python3.11/lib-dynload/_blake2.cpython-311-x86_64-linux-gnu.so": 53248,
+          "/usr/lib/x86_64-linux-gnu/libzstd.so.1.5.7": 827392,
+          "/usr/lib/x86_64-linux-gnu/libcrypto.so.3": 6516736,
+          "/usr/local/lib/python3.11/lib-dynload/_hashlib.cpython-311-x86_64-linux-gnu.so": 65536,
+          "/usr/local/lib/python3.11/lib-dynload/binascii.cpython-311-x86_64-linux-gnu.so": 36864,
+          "/usr/local/lib/python3.11/lib-dynload/mmap.cpython-311-x86_64-linux-gnu.so": 36864,
+          "/usr/lib/x86_64-linux-gnu/liblzma.so.5.8.1": 200704,
+          "/usr/local/lib/python3.11/lib-dynload/_lzma.cpython-311-x86_64-linux-gnu.so": 49152,
+          "/usr/lib/x86_64-linux-gnu/libbz2.so.1.0.4": 77824,
+          "/usr/local/lib/python3.11/lib-dynload/_bz2.cpython-311-x86_64-linux-gnu.so": 32768,
+          "/usr/local/lib/python3.11/lib-dynload/_decimal.cpython-311-x86_64-linux-gnu.so": 286720,
+          "/usr/local/lib/python3.11/lib-dynload/_sha512.cpython-311-x86_64-linux-gnu.so": 36864,
+          "/usr/local/lib/python3.11/lib-dynload/_random.cpython-311-x86_64-linux-gnu.so": 24576,
+          "/usr/local/lib/python3.11/lib-dynload/_bisect.cpython-311-x86_64-linux-gnu.so": 20480,
+          "/usr/local/lib/python3.11/lib-dynload/_opcode.cpython-311-x86_64-linux-gnu.so": 20480,
+          "/usr/local/lib/python3.11/lib-dynload/_typing.cpython-311-x86_64-linux-gnu.so": 20480,
+          "/usr/local/lib/python3.11/lib-dynload/_datetime.cpython-311-x86_64-linux-gnu.so": 110592,
+          "/usr/local/lib/python3.11/lib-dynload/_queue.cpython-311-x86_64-linux-gnu.so": 24576,
+          "/usr/local/lib/python3.11/lib-dynload/_heapq.cpython-311-x86_64-linux-gnu.so": 32768,
+          "/usr/local/lib/python3.11/lib-dynload/_json.cpython-311-x86_64-linux-gnu.so": 49152,
+          "/usr/local/lib/python3.11/lib-dynload/_posixshmem.cpython-311-x86_64-linux-gnu.so": 20480,
+          "/usr/local/lib/python3.11/lib-dynload/_multiprocessing.cpython-311-x86_64-linux-gnu.so": 24576,
+          "/usr/local/lib/python3.11/lib-dynload/_posixsubprocess.cpython-311-x86_64-linux-gnu.so": 32768,
+          "/usr/local/lib/python3.11/lib-dynload/fcntl.cpython-311-x86_64-linux-gnu.so": 28672,
+          "/usr/local/lib/python3.11/lib-dynload/array.cpython-311-x86_64-linux-gnu.so": 65536,
+          "/usr/local/lib/python3.11/lib-dynload/select.cpython-311-x86_64-linux-gnu.so": 36864,
+          "/usr/local/lib/python3.11/lib-dynload/math.cpython-311-x86_64-linux-gnu.so": 65536,
+          "/usr/lib/x86_64-linux-gnu/libz.so.1.3.1": 131072,
+          "/usr/local/lib/python3.11/lib-dynload/zlib.cpython-311-x86_64-linux-gnu.so": 45056,
+          "/usr/local/lib/python3.11/lib-dynload/_socket.cpython-311-x86_64-linux-gnu.so": 98304,
+          "/usr/local/lib/python3.11/lib-dynload/_pickle.cpython-311-x86_64-linux-gnu.so": 118784,
+          "/usr/local/lib/python3.11/lib-dynload/_struct.cpython-311-x86_64-linux-gnu.so": 53248,
+          "/usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache": 28672,
+          "/usr/lib/locale/C.utf8/LC_CTYPE": 368640,
+          "/usr/lib/x86_64-linux-gnu/libm.so.6": 983040,
+          "/usr/lib/x86_64-linux-gnu/libc.so.6": 1994752,
+          "/usr/local/lib/libpython3.11.so.1.0": 5324800,
+          "[vvar]": 16384,
+          "[vvar_vclock]": 8192,
+          "[vdso]": 8192,
+          "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2": 225280,
+          "[stack]": 135168
+        }
+      },
+      "14": {
+        "vm_size": 734124,
+        "vm_rss": 24012,
+        "vm_data": 63536,
+        "vm_stk": 132,
+        "vm_exe": 4,
+        "vm_lib": 9140,
+        "vm_hwm": 24260,
+        "vm_swap": 0,
+        "minflt": 446740,
+        "majflt": 0,
+        "segmentos": {
+          "/usr/local/bin/python3.11": 20480,
+          "[heap]": 3346432,
+          "[anon]": 730054656,
+          "/usr/local/lib/python3.11/lib-dynload/_blake2.cpython-311-x86_64-linux-gnu.so": 53248,
+          "/usr/lib/x86_64-linux-gnu/libzstd.so.1.5.7": 827392,
+          "/usr/lib/x86_64-linux-gnu/libcrypto.so.3": 6516736,
+          "/usr/local/lib/python3.11/lib-dynload/_hashlib.cpython-311-x86_64-linux-gnu.so": 65536,
+          "/usr/local/lib/python3.11/lib-dynload/binascii.cpython-311-x86_64-linux-gnu.so": 36864,
+          "/usr/local/lib/python3.11/lib-dynload/mmap.cpython-311-x86_64-linux-gnu.so": 36864,
+          "/usr/lib/x86_64-linux-gnu/liblzma.so.5.8.1": 200704,
+          "/usr/local/lib/python3.11/lib-dynload/_lzma.cpython-311-x86_64-linux-gnu.so": 49152,
+          "/usr/lib/x86_64-linux-gnu/libbz2.so.1.0.4": 77824,
+          "/usr/local/lib/python3.11/lib-dynload/_bz2.cpython-311-x86_64-linux-gnu.so": 32768,
+          "/usr/local/lib/python3.11/lib-dynload/_decimal.cpython-311-x86_64-linux-gnu.so": 286720,
+          "/usr/local/lib/python3.11/lib-dynload/_sha512.cpython-311-x86_64-linux-gnu.so": 36864,
+          "/usr/local/lib/python3.11/lib-dynload/_random.cpython-311-x86_64-linux-gnu.so": 24576,
+          "/usr/local/lib/python3.11/lib-dynload/_bisect.cpython-311-x86_64-linux-gnu.so": 20480,
+          "/usr/local/lib/python3.11/lib-dynload/_opcode.cpython-311-x86_64-linux-gnu.so": 20480,
+          "/usr/local/lib/python3.11/lib-dynload/_typing.cpython-311-x86_64-linux-gnu.so": 20480,
+          "/usr/local/lib/python3.11/lib-dynload/_datetime.cpython-311-x86_64-linux-gnu.so": 110592,
+          "/usr/local/lib/python3.11/lib-dynload/_queue.cpython-311-x86_64-linux-gnu.so": 24576,
+          "/usr/local/lib/python3.11/lib-dynload/_heapq.cpython-311-x86_64-linux-gnu.so": 32768,
+          "/usr/local/lib/python3.11/lib-dynload/_json.cpython-311-x86_64-linux-gnu.so": 49152,
+          "/usr/local/lib/python3.11/lib-dynload/_posixshmem.cpython-311-x86_64-linux-gnu.so": 20480,
+          "/usr/local/lib/python3.11/lib-dynload/_multiprocessing.cpython-311-x86_64-linux-gnu.so": 24576,
+          "/usr/local/lib/python3.11/lib-dynload/_posixsubprocess.cpython-311-x86_64-linux-gnu.so": 32768,
+          "/usr/local/lib/python3.11/lib-dynload/fcntl.cpython-311-x86_64-linux-gnu.so": 28672,
+          "/usr/local/lib/python3.11/lib-dynload/array.cpython-311-x86_64-linux-gnu.so": 65536,
+          "/usr/local/lib/python3.11/lib-dynload/select.cpython-311-x86_64-linux-gnu.so": 36864,
+          "/usr/local/lib/python3.11/lib-dynload/math.cpython-311-x86_64-linux-gnu.so": 65536,
+          "/usr/lib/x86_64-linux-gnu/libz.so.1.3.1": 131072,
+          "/usr/local/lib/python3.11/lib-dynload/zlib.cpython-311-x86_64-linux-gnu.so": 45056,
+          "/usr/local/lib/python3.11/lib-dynload/_socket.cpython-311-x86_64-linux-gnu.so": 98304,
+          "/usr/local/lib/python3.11/lib-dynload/_pickle.cpython-311-x86_64-linux-gnu.so": 118784,
+          "/usr/local/lib/python3.11/lib-dynload/_struct.cpython-311-x86_64-linux-gnu.so": 53248,
+          "/usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache": 28672,
+          "/usr/lib/locale/C.utf8/LC_CTYPE": 368640,
+          "/usr/lib/x86_64-linux-gnu/libm.so.6": 983040,
+          "/usr/lib/x86_64-linux-gnu/libc.so.6": 1994752,
+          "/usr/local/lib/libpython3.11.so.1.0": 5324800,
+          "[vvar]": 16384,
+          "[vvar_vclock]": 8192,
+          "[vdso]": 8192,
+          "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2": 225280,
+          "[stack]": 135168
+        }
+      },
+      "51": {
+        "vm_size": 95652,
+        "vm_rss": 18428,
+        "vm_data": 21032,
+        "vm_stk": 132,
+        "vm_exe": 4,
+        "vm_lib": 4772,
+        "vm_hwm": 18428,
+        "vm_swap": 0,
+        "minflt": 3185,
+        "majflt": 0,
+        "segmentos": {
+          "/usr/local/bin/python3.11": 20480,
+          "[heap]": 3063808,
+          "[anon]": 84049920,
+          "/usr/lib/x86_64-linux-gnu/liblzma.so.5.8.1": 200704,
+          "/usr/local/lib/python3.11/lib-dynload/_lzma.cpython-311-x86_64-linux-gnu.so": 49152,
+          "/usr/lib/x86_64-linux-gnu/libbz2.so.1.0.4": 77824,
+          "/usr/local/lib/python3.11/lib-dynload/_bz2.cpython-311-x86_64-linux-gnu.so": 32768,
+          "/usr/local/lib/python3.11/lib-dynload/_decimal.cpython-311-x86_64-linux-gnu.so": 286720,
+          "/usr/local/lib/python3.11/lib-dynload/_sha512.cpython-311-x86_64-linux-gnu.so": 36864,
+          "/usr/local/lib/python3.11/lib-dynload/_random.cpython-311-x86_64-linux-gnu.so": 24576,
+          "/usr/local/lib/python3.11/lib-dynload/_bisect.cpython-311-x86_64-linux-gnu.so": 20480,
+          "/usr/local/lib/python3.11/lib-dynload/_opcode.cpython-311-x86_64-linux-gnu.so": 20480,
+          "/usr/local/lib/python3.11/lib-dynload/_typing.cpython-311-x86_64-linux-gnu.so": 20480,
+          "/usr/local/lib/python3.11/lib-dynload/_datetime.cpython-311-x86_64-linux-gnu.so": 110592,
+          "/usr/local/lib/python3.11/lib-dynload/_queue.cpython-311-x86_64-linux-gnu.so": 24576,
+          "/usr/local/lib/python3.11/lib-dynload/_heapq.cpython-311-x86_64-linux-gnu.so": 32768,
+          "/usr/local/lib/python3.11/lib-dynload/_json.cpython-311-x86_64-linux-gnu.so": 49152,
+          "/usr/local/lib/python3.11/lib-dynload/_posixshmem.cpython-311-x86_64-linux-gnu.so": 20480,
+          "/usr/local/lib/python3.11/lib-dynload/_multiprocessing.cpython-311-x86_64-linux-gnu.so": 24576,
+          "/usr/local/lib/python3.11/lib-dynload/_posixsubprocess.cpython-311-x86_64-linux-gnu.so": 32768,
+          "/usr/local/lib/python3.11/lib-dynload/fcntl.cpython-311-x86_64-linux-gnu.so": 28672,
+          "/usr/local/lib/python3.11/lib-dynload/array.cpython-311-x86_64-linux-gnu.so": 65536,
+          "/usr/local/lib/python3.11/lib-dynload/select.cpython-311-x86_64-linux-gnu.so": 36864,
+          "/usr/local/lib/python3.11/lib-dynload/math.cpython-311-x86_64-linux-gnu.so": 65536,
+          "/dev/shm/sem.mp-v0uahcct": 4096,
+          "/usr/lib/x86_64-linux-gnu/libz.so.1.3.1": 131072,
+          "/dev/shm/sem.mp-etydha16": 4096,
+          "/dev/shm/sem.mp-l9_qfho_": 4096,
+          "/usr/local/lib/python3.11/lib-dynload/zlib.cpython-311-x86_64-linux-gnu.so": 45056,
+          "/usr/local/lib/python3.11/lib-dynload/_socket.cpython-311-x86_64-linux-gnu.so": 98304,
+          "/usr/local/lib/python3.11/lib-dynload/_pickle.cpython-311-x86_64-linux-gnu.so": 118784,
+          "/usr/local/lib/python3.11/lib-dynload/_struct.cpython-311-x86_64-linux-gnu.so": 53248,
+          "/usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache": 28672,
+          "/usr/lib/locale/C.utf8/LC_CTYPE": 368640,
+          "/usr/lib/x86_64-linux-gnu/libm.so.6": 983040,
+          "/usr/lib/x86_64-linux-gnu/libc.so.6": 1994752,
+          "/usr/local/lib/libpython3.11.so.1.0": 5324800,
+          "[vvar]": 16384,
+          "[vvar_vclock]": 8192,
+          "[vdso]": 8192,
+          "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2": 225280,
+          "[stack]": 135168
+        }
+      },
+      "52": {
+        "vm_size": 30616,
+        "vm_rss": 23752,
+        "vm_data": 14076,
+        "vm_stk": 132,
+        "vm_exe": 4,
+        "vm_lib": 9140,
+        "vm_hwm": 23752,
+        "vm_swap": 0,
+        "minflt": 3613,
+        "majflt": 0,
+        "segmentos": {
+          "/usr/local/bin/python3.11": 20480,
+          "[heap]": 3383296,
+          "[anon]": 9592832,
+          "/usr/local/lib/python3.11/lib-dynload/_blake2.cpython-311-x86_64-linux-gnu.so": 53248,
+          "/usr/lib/x86_64-linux-gnu/libzstd.so.1.5.7": 827392,
+          "/usr/lib/x86_64-linux-gnu/libcrypto.so.3": 6516736,
+          "/usr/local/lib/python3.11/lib-dynload/_hashlib.cpython-311-x86_64-linux-gnu.so": 65536,
+          "/usr/local/lib/python3.11/lib-dynload/binascii.cpython-311-x86_64-linux-gnu.so": 36864,
+          "/usr/local/lib/python3.11/lib-dynload/mmap.cpython-311-x86_64-linux-gnu.so": 36864,
+          "/usr/lib/x86_64-linux-gnu/liblzma.so.5.8.1": 200704,
+          "/usr/local/lib/python3.11/lib-dynload/_lzma.cpython-311-x86_64-linux-gnu.so": 49152,
+          "/usr/lib/x86_64-linux-gnu/libbz2.so.1.0.4": 77824,
+          "/usr/local/lib/python3.11/lib-dynload/_bz2.cpython-311-x86_64-linux-gnu.so": 32768,
+          "/usr/local/lib/python3.11/lib-dynload/_decimal.cpython-311-x86_64-linux-gnu.so": 286720,
+          "/usr/local/lib/python3.11/lib-dynload/_sha512.cpython-311-x86_64-linux-gnu.so": 36864,
+          "/usr/local/lib/python3.11/lib-dynload/_random.cpython-311-x86_64-linux-gnu.so": 24576,
+          "/usr/local/lib/python3.11/lib-dynload/_bisect.cpython-311-x86_64-linux-gnu.so": 20480,
+          "/usr/local/lib/python3.11/lib-dynload/_opcode.cpython-311-x86_64-linux-gnu.so": 20480,
+          "/usr/local/lib/python3.11/lib-dynload/_typing.cpython-311-x86_64-linux-gnu.so": 20480,
+          "/usr/local/lib/python3.11/lib-dynload/_datetime.cpython-311-x86_64-linux-gnu.so": 110592,
+          "/usr/local/lib/python3.11/lib-dynload/_queue.cpython-311-x86_64-linux-gnu.so": 24576,
+          "/usr/local/lib/python3.11/lib-dynload/_heapq.cpython-311-x86_64-linux-gnu.so": 32768,
+          "/usr/local/lib/python3.11/lib-dynload/_json.cpython-311-x86_64-linux-gnu.so": 49152,
+          "/usr/local/lib/python3.11/lib-dynload/_posixshmem.cpython-311-x86_64-linux-gnu.so": 20480,
+          "/usr/local/lib/python3.11/lib-dynload/_multiprocessing.cpython-311-x86_64-linux-gnu.so": 24576,
+          "/usr/local/lib/python3.11/lib-dynload/_posixsubprocess.cpython-311-x86_64-linux-gnu.so": 32768,
+          "/usr/local/lib/python3.11/lib-dynload/fcntl.cpython-311-x86_64-linux-gnu.so": 28672,
+          "/usr/local/lib/python3.11/lib-dynload/array.cpython-311-x86_64-linux-gnu.so": 65536,
+          "/usr/local/lib/python3.11/lib-dynload/select.cpython-311-x86_64-linux-gnu.so": 36864,
+          "/usr/local/lib/python3.11/lib-dynload/math.cpython-311-x86_64-linux-gnu.so": 65536,
+          "/dev/shm/sem.mp-htlei7z4": 4096,
+          "/dev/shm/sem.mp-v0uahcct": 4096,
+          "/usr/lib/x86_64-linux-gnu/libz.so.1.3.1": 131072,
+          "/dev/shm/sem.mp-etydha16": 4096,
+          "/dev/shm/sem.mp-l9_qfho_": 4096,
+          "/usr/local/lib/python3.11/lib-dynload/zlib.cpython-311-x86_64-linux-gnu.so": 45056,
+          "/usr/local/lib/python3.11/lib-dynload/_socket.cpython-311-x86_64-linux-gnu.so": 98304,
+          "/usr/local/lib/python3.11/lib-dynload/_pickle.cpython-311-x86_64-linux-gnu.so": 118784,
+          "/usr/local/lib/python3.11/lib-dynload/_struct.cpython-311-x86_64-linux-gnu.so": 53248,
+          "/usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache": 28672,
+          "/usr/lib/locale/C.utf8/LC_CTYPE": 368640,
+          "/usr/lib/x86_64-linux-gnu/libm.so.6": 983040,
+          "/usr/lib/x86_64-linux-gnu/libc.so.6": 1994752,
+          "/usr/local/lib/libpython3.11.so.1.0": 5324800,
+          "[vvar]": 16384,
+          "[vvar_vclock]": 8192,
+          "[vdso]": 8192,
+          "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2": 225280,
+          "[stack]": 135168
+        }
+      },
+      "53": {
+        "vm_size": 30768,
+        "vm_rss": 24076,
+        "vm_data": 14228,
+        "vm_stk": 132,
+        "vm_exe": 4,
+        "vm_lib": 9140,
+        "vm_hwm": 24076,
+        "vm_swap": 0,
+        "minflt": 3679,
+        "majflt": 0,
+        "segmentos": {
+          "/usr/local/bin/python3.11": 20480,
+          "[heap]": 3538944,
+          "[anon]": 9592832,
+          "/usr/local/lib/python3.11/lib-dynload/_blake2.cpython-311-x86_64-linux-gnu.so": 53248,
+          "/usr/lib/x86_64-linux-gnu/libzstd.so.1.5.7": 827392,
+          "/usr/lib/x86_64-linux-gnu/libcrypto.so.3": 6516736,
+          "/usr/local/lib/python3.11/lib-dynload/_hashlib.cpython-311-x86_64-linux-gnu.so": 65536,
+          "/usr/local/lib/python3.11/lib-dynload/binascii.cpython-311-x86_64-linux-gnu.so": 36864,
+          "/usr/local/lib/python3.11/lib-dynload/mmap.cpython-311-x86_64-linux-gnu.so": 36864,
+          "/usr/lib/x86_64-linux-gnu/liblzma.so.5.8.1": 200704,
+          "/usr/local/lib/python3.11/lib-dynload/_lzma.cpython-311-x86_64-linux-gnu.so": 49152,
+          "/usr/lib/x86_64-linux-gnu/libbz2.so.1.0.4": 77824,
+          "/usr/local/lib/python3.11/lib-dynload/_bz2.cpython-311-x86_64-linux-gnu.so": 32768,
+          "/usr/local/lib/python3.11/lib-dynload/_decimal.cpython-311-x86_64-linux-gnu.so": 286720,
+          "/usr/local/lib/python3.11/lib-dynload/_sha512.cpython-311-x86_64-linux-gnu.so": 36864,
+          "/usr/local/lib/python3.11/lib-dynload/_random.cpython-311-x86_64-linux-gnu.so": 24576,
+          "/usr/local/lib/python3.11/lib-dynload/_bisect.cpython-311-x86_64-linux-gnu.so": 20480,
+          "/usr/local/lib/python3.11/lib-dynload/_opcode.cpython-311-x86_64-linux-gnu.so": 20480,
+          "/usr/local/lib/python3.11/lib-dynload/_typing.cpython-311-x86_64-linux-gnu.so": 20480,
+          "/usr/local/lib/python3.11/lib-dynload/_datetime.cpython-311-x86_64-linux-gnu.so": 110592,
+          "/usr/local/lib/python3.11/lib-dynload/_queue.cpython-311-x86_64-linux-gnu.so": 24576,
+          "/usr/local/lib/python3.11/lib-dynload/_heapq.cpython-311-x86_64-linux-gnu.so": 32768,
+          "/usr/local/lib/python3.11/lib-dynload/_json.cpython-311-x86_64-linux-gnu.so": 49152,
+          "/usr/local/lib/python3.11/lib-dynload/_posixshmem.cpython-311-x86_64-linux-gnu.so": 20480,
+          "/usr/local/lib/python3.11/lib-dynload/_multiprocessing.cpython-311-x86_64-linux-gnu.so": 24576,
+          "/usr/local/lib/python3.11/lib-dynload/_posixsubprocess.cpython-311-x86_64-linux-gnu.so": 32768,
+          "/usr/local/lib/python3.11/lib-dynload/fcntl.cpython-311-x86_64-linux-gnu.so": 28672,
+          "/usr/local/lib/python3.11/lib-dynload/array.cpython-311-x86_64-linux-gnu.so": 65536,
+          "/usr/local/lib/python3.11/lib-dynload/select.cpython-311-x86_64-linux-gnu.so": 36864,
+          "/usr/local/lib/python3.11/lib-dynload/math.cpython-311-x86_64-linux-gnu.so": 65536,
+          "/dev/shm/sem.mp-htlei7z4": 4096,
+          "/dev/shm/sem.mp-v0uahcct": 4096,
+          "/usr/lib/x86_64-linux-gnu/libz.so.1.3.1": 131072,
+          "/dev/shm/sem.mp-etydha16": 4096,
+          "/dev/shm/sem.mp-l9_qfho_": 4096,
+          "/usr/local/lib/python3.11/lib-dynload/zlib.cpython-311-x86_64-linux-gnu.so": 45056,
+          "/usr/local/lib/python3.11/lib-dynload/_socket.cpython-311-x86_64-linux-gnu.so": 98304,
+          "/usr/local/lib/python3.11/lib-dynload/_pickle.cpython-311-x86_64-linux-gnu.so": 118784,
+          "/usr/local/lib/python3.11/lib-dynload/_struct.cpython-311-x86_64-linux-gnu.so": 53248,
+          "/usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache": 28672,
+          "/usr/lib/locale/C.utf8/LC_CTYPE": 368640,
+          "/usr/lib/x86_64-linux-gnu/libm.so.6": 983040,
+          "/usr/lib/x86_64-linux-gnu/libc.so.6": 1994752,
+          "/usr/local/lib/libpython3.11.so.1.0": 5324800,
+          "[vvar]": 16384,
+          "[vvar_vclock]": 8192,
+          "[vdso]": 8192,
+          "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2": 225280,
+          "[stack]": 135168
+        }
+      },
+      "54": {
+        "vm_size": 30632,
+        "vm_rss": 24000,
+        "vm_data": 14092,
+        "vm_stk": 132,
+        "vm_exe": 4,
+        "vm_lib": 9140,
+        "vm_hwm": 24000,
+        "vm_swap": 0,
+        "minflt": 3621,
+        "majflt": 0,
+        "segmentos": {
+          "/usr/local/bin/python3.11": 20480,
+          "[heap]": 3399680,
+          "[anon]": 9592832,
+          "/usr/local/lib/python3.11/lib-dynload/_blake2.cpython-311-x86_64-linux-gnu.so": 53248,
+          "/usr/lib/x86_64-linux-gnu/libzstd.so.1.5.7": 827392,
+          "/usr/lib/x86_64-linux-gnu/libcrypto.so.3": 6516736,
+          "/usr/local/lib/python3.11/lib-dynload/_hashlib.cpython-311-x86_64-linux-gnu.so": 65536,
+          "/usr/local/lib/python3.11/lib-dynload/binascii.cpython-311-x86_64-linux-gnu.so": 36864,
+          "/usr/local/lib/python3.11/lib-dynload/mmap.cpython-311-x86_64-linux-gnu.so": 36864,
+          "/usr/lib/x86_64-linux-gnu/liblzma.so.5.8.1": 200704,
+          "/usr/local/lib/python3.11/lib-dynload/_lzma.cpython-311-x86_64-linux-gnu.so": 49152,
+          "/usr/lib/x86_64-linux-gnu/libbz2.so.1.0.4": 77824,
+          "/usr/local/lib/python3.11/lib-dynload/_bz2.cpython-311-x86_64-linux-gnu.so": 32768,
+          "/usr/local/lib/python3.11/lib-dynload/_decimal.cpython-311-x86_64-linux-gnu.so": 286720,
+          "/usr/local/lib/python3.11/lib-dynload/_sha512.cpython-311-x86_64-linux-gnu.so": 36864,
+          "/usr/local/lib/python3.11/lib-dynload/_random.cpython-311-x86_64-linux-gnu.so": 24576,
+          "/usr/local/lib/python3.11/lib-dynload/_bisect.cpython-311-x86_64-linux-gnu.so": 20480,
+          "/usr/local/lib/python3.11/lib-dynload/_opcode.cpython-311-x86_64-linux-gnu.so": 20480,
+          "/usr/local/lib/python3.11/lib-dynload/_typing.cpython-311-x86_64-linux-gnu.so": 20480,
+          "/usr/local/lib/python3.11/lib-dynload/_datetime.cpython-311-x86_64-linux-gnu.so": 110592,
+          "/usr/local/lib/python3.11/lib-dynload/_queue.cpython-311-x86_64-linux-gnu.so": 24576,
+          "/usr/local/lib/python3.11/lib-dynload/_heapq.cpython-311-x86_64-linux-gnu.so": 32768,
+          "/usr/local/lib/python3.11/lib-dynload/_json.cpython-311-x86_64-linux-gnu.so": 49152,
+          "/usr/local/lib/python3.11/lib-dynload/_posixshmem.cpython-311-x86_64-linux-gnu.so": 20480,
+          "/usr/local/lib/python3.11/lib-dynload/_multiprocessing.cpython-311-x86_64-linux-gnu.so": 24576,
+          "/usr/local/lib/python3.11/lib-dynload/_posixsubprocess.cpython-311-x86_64-linux-gnu.so": 32768,
+          "/usr/local/lib/python3.11/lib-dynload/fcntl.cpython-311-x86_64-linux-gnu.so": 28672,
+          "/usr/local/lib/python3.11/lib-dynload/array.cpython-311-x86_64-linux-gnu.so": 65536,
+          "/usr/local/lib/python3.11/lib-dynload/select.cpython-311-x86_64-linux-gnu.so": 36864,
+          "/usr/local/lib/python3.11/lib-dynload/math.cpython-311-x86_64-linux-gnu.so": 65536,
+          "/dev/shm/sem.mp-htlei7z4": 4096,
+          "/dev/shm/sem.mp-v0uahcct": 4096,
+          "/usr/lib/x86_64-linux-gnu/libz.so.1.3.1": 131072,
+          "/dev/shm/sem.mp-etydha16": 4096,
+          "/dev/shm/sem.mp-l9_qfho_": 4096,
+          "/usr/local/lib/python3.11/lib-dynload/zlib.cpython-311-x86_64-linux-gnu.so": 45056,
+          "/usr/local/lib/python3.11/lib-dynload/_socket.cpython-311-x86_64-linux-gnu.so": 98304,
+          "/usr/local/lib/python3.11/lib-dynload/_pickle.cpython-311-x86_64-linux-gnu.so": 118784,
+          "/usr/local/lib/python3.11/lib-dynload/_struct.cpython-311-x86_64-linux-gnu.so": 53248,
+          "/usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache": 28672,
+          "/usr/lib/locale/C.utf8/LC_CTYPE": 368640,
+          "/usr/lib/x86_64-linux-gnu/libm.so.6": 983040,
+          "/usr/lib/x86_64-linux-gnu/libc.so.6": 1994752,
+          "/usr/local/lib/libpython3.11.so.1.0": 5324800,
+          "[vvar]": 16384,
+          "[vvar_vclock]": 8192,
+          "[vdso]": 8192,
+          "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2": 225280,
+          "[stack]": 135168
+        }
+      },
+      "55": {
+        "vm_size": 30632,
+        "vm_rss": 23984,
+        "vm_data": 14092,
+        "vm_stk": 132,
+        "vm_exe": 4,
+        "vm_lib": 9140,
+        "vm_hwm": 23984,
+        "vm_swap": 0,
+        "minflt": 3625,
+        "majflt": 0,
+        "segmentos": {
+          "/usr/local/bin/python3.11": 20480,
+          "[heap]": 3399680,
+          "[anon]": 9592832,
+          "/usr/local/lib/python3.11/lib-dynload/_blake2.cpython-311-x86_64-linux-gnu.so": 53248,
+          "/usr/lib/x86_64-linux-gnu/libzstd.so.1.5.7": 827392,
+          "/usr/lib/x86_64-linux-gnu/libcrypto.so.3": 6516736,
+          "/usr/local/lib/python3.11/lib-dynload/_hashlib.cpython-311-x86_64-linux-gnu.so": 65536,
+          "/usr/local/lib/python3.11/lib-dynload/binascii.cpython-311-x86_64-linux-gnu.so": 36864,
+          "/usr/local/lib/python3.11/lib-dynload/mmap.cpython-311-x86_64-linux-gnu.so": 36864,
+          "/usr/lib/x86_64-linux-gnu/liblzma.so.5.8.1": 200704,
+          "/usr/local/lib/python3.11/lib-dynload/_lzma.cpython-311-x86_64-linux-gnu.so": 49152,
+          "/usr/lib/x86_64-linux-gnu/libbz2.so.1.0.4": 77824,
+          "/usr/local/lib/python3.11/lib-dynload/_bz2.cpython-311-x86_64-linux-gnu.so": 32768,
+          "/usr/local/lib/python3.11/lib-dynload/_decimal.cpython-311-x86_64-linux-gnu.so": 286720,
+          "/usr/local/lib/python3.11/lib-dynload/_sha512.cpython-311-x86_64-linux-gnu.so": 36864,
+          "/usr/local/lib/python3.11/lib-dynload/_random.cpython-311-x86_64-linux-gnu.so": 24576,
+          "/usr/local/lib/python3.11/lib-dynload/_bisect.cpython-311-x86_64-linux-gnu.so": 20480,
+          "/usr/local/lib/python3.11/lib-dynload/_opcode.cpython-311-x86_64-linux-gnu.so": 20480,
+          "/usr/local/lib/python3.11/lib-dynload/_typing.cpython-311-x86_64-linux-gnu.so": 20480,
+          "/usr/local/lib/python3.11/lib-dynload/_datetime.cpython-311-x86_64-linux-gnu.so": 110592,
+          "/usr/local/lib/python3.11/lib-dynload/_queue.cpython-311-x86_64-linux-gnu.so": 24576,
+          "/usr/local/lib/python3.11/lib-dynload/_heapq.cpython-311-x86_64-linux-gnu.so": 32768,
+          "/usr/local/lib/python3.11/lib-dynload/_json.cpython-311-x86_64-linux-gnu.so": 49152,
+          "/usr/local/lib/python3.11/lib-dynload/_posixshmem.cpython-311-x86_64-linux-gnu.so": 20480,
+          "/usr/local/lib/python3.11/lib-dynload/_multiprocessing.cpython-311-x86_64-linux-gnu.so": 24576,
+          "/usr/local/lib/python3.11/lib-dynload/_posixsubprocess.cpython-311-x86_64-linux-gnu.so": 32768,
+          "/usr/local/lib/python3.11/lib-dynload/fcntl.cpython-311-x86_64-linux-gnu.so": 28672,
+          "/usr/local/lib/python3.11/lib-dynload/array.cpython-311-x86_64-linux-gnu.so": 65536,
+          "/usr/local/lib/python3.11/lib-dynload/select.cpython-311-x86_64-linux-gnu.so": 36864,
+          "/usr/local/lib/python3.11/lib-dynload/math.cpython-311-x86_64-linux-gnu.so": 65536,
+          "/dev/shm/sem.mp-htlei7z4": 4096,
+          "/dev/shm/sem.mp-v0uahcct": 4096,
+          "/usr/lib/x86_64-linux-gnu/libz.so.1.3.1": 131072,
+          "/dev/shm/sem.mp-etydha16": 4096,
+          "/dev/shm/sem.mp-l9_qfho_": 4096,
+          "/usr/local/lib/python3.11/lib-dynload/zlib.cpython-311-x86_64-linux-gnu.so": 45056,
+          "/usr/local/lib/python3.11/lib-dynload/_socket.cpython-311-x86_64-linux-gnu.so": 98304,
+          "/usr/local/lib/python3.11/lib-dynload/_pickle.cpython-311-x86_64-linux-gnu.so": 118784,
+          "/usr/local/lib/python3.11/lib-dynload/_struct.cpython-311-x86_64-linux-gnu.so": 53248,
+          "/usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache": 28672,
+          "/usr/lib/locale/C.utf8/LC_CTYPE": 368640,
+          "/usr/lib/x86_64-linux-gnu/libm.so.6": 983040,
+          "/usr/lib/x86_64-linux-gnu/libc.so.6": 1994752,
+          "/usr/local/lib/libpython3.11.so.1.0": 5324800,
+          "[vvar]": 16384,
+          "[vvar_vclock]": 8192,
+          "[vdso]": 8192,
+          "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2": 225280,
+          "[stack]": 135168
+        }
+      },
+      "56": {
+        "vm_size": 30616,
+        "vm_rss": 23748,
+        "vm_data": 14076,
+        "vm_stk": 132,
+        "vm_exe": 4,
+        "vm_lib": 9140,
+        "vm_hwm": 23748,
+        "vm_swap": 0,
+        "minflt": 3614,
+        "majflt": 0,
+        "segmentos": {
+          "/usr/local/bin/python3.11": 20480,
+          "[heap]": 3383296,
+          "[anon]": 9592832,
+          "/usr/local/lib/python3.11/lib-dynload/_blake2.cpython-311-x86_64-linux-gnu.so": 53248,
+          "/usr/lib/x86_64-linux-gnu/libzstd.so.1.5.7": 827392,
+          "/usr/lib/x86_64-linux-gnu/libcrypto.so.3": 6516736,
+          "/usr/local/lib/python3.11/lib-dynload/_hashlib.cpython-311-x86_64-linux-gnu.so": 65536,
+          "/usr/local/lib/python3.11/lib-dynload/binascii.cpython-311-x86_64-linux-gnu.so": 36864,
+          "/usr/local/lib/python3.11/lib-dynload/mmap.cpython-311-x86_64-linux-gnu.so": 36864,
+          "/usr/lib/x86_64-linux-gnu/liblzma.so.5.8.1": 200704,
+          "/usr/local/lib/python3.11/lib-dynload/_lzma.cpython-311-x86_64-linux-gnu.so": 49152,
+          "/usr/lib/x86_64-linux-gnu/libbz2.so.1.0.4": 77824,
+          "/usr/local/lib/python3.11/lib-dynload/_bz2.cpython-311-x86_64-linux-gnu.so": 32768,
+          "/usr/local/lib/python3.11/lib-dynload/_decimal.cpython-311-x86_64-linux-gnu.so": 286720,
+          "/usr/local/lib/python3.11/lib-dynload/_sha512.cpython-311-x86_64-linux-gnu.so": 36864,
+          "/usr/local/lib/python3.11/lib-dynload/_random.cpython-311-x86_64-linux-gnu.so": 24576,
+          "/usr/local/lib/python3.11/lib-dynload/_bisect.cpython-311-x86_64-linux-gnu.so": 20480,
+          "/usr/local/lib/python3.11/lib-dynload/_opcode.cpython-311-x86_64-linux-gnu.so": 20480,
+          "/usr/local/lib/python3.11/lib-dynload/_typing.cpython-311-x86_64-linux-gnu.so": 20480,
+          "/usr/local/lib/python3.11/lib-dynload/_datetime.cpython-311-x86_64-linux-gnu.so": 110592,
+          "/usr/local/lib/python3.11/lib-dynload/_queue.cpython-311-x86_64-linux-gnu.so": 24576,
+          "/usr/local/lib/python3.11/lib-dynload/_heapq.cpython-311-x86_64-linux-gnu.so": 32768,
+          "/usr/local/lib/python3.11/lib-dynload/_json.cpython-311-x86_64-linux-gnu.so": 49152,
+          "/usr/local/lib/python3.11/lib-dynload/_posixshmem.cpython-311-x86_64-linux-gnu.so": 20480,
+          "/usr/local/lib/python3.11/lib-dynload/_multiprocessing.cpython-311-x86_64-linux-gnu.so": 24576,
+          "/usr/local/lib/python3.11/lib-dynload/_posixsubprocess.cpython-311-x86_64-linux-gnu.so": 32768,
+          "/usr/local/lib/python3.11/lib-dynload/fcntl.cpython-311-x86_64-linux-gnu.so": 28672,
+          "/usr/local/lib/python3.11/lib-dynload/array.cpython-311-x86_64-linux-gnu.so": 65536,
+          "/usr/local/lib/python3.11/lib-dynload/select.cpython-311-x86_64-linux-gnu.so": 36864,
+          "/usr/local/lib/python3.11/lib-dynload/math.cpython-311-x86_64-linux-gnu.so": 65536,
+          "/dev/shm/sem.mp-htlei7z4": 4096,
+          "/dev/shm/sem.mp-v0uahcct": 4096,
+          "/usr/lib/x86_64-linux-gnu/libz.so.1.3.1": 131072,
+          "/dev/shm/sem.mp-etydha16": 4096,
+          "/dev/shm/sem.mp-l9_qfho_": 4096,
+          "/usr/local/lib/python3.11/lib-dynload/zlib.cpython-311-x86_64-linux-gnu.so": 45056,
+          "/usr/local/lib/python3.11/lib-dynload/_socket.cpython-311-x86_64-linux-gnu.so": 98304,
+          "/usr/local/lib/python3.11/lib-dynload/_pickle.cpython-311-x86_64-linux-gnu.so": 118784,
+          "/usr/local/lib/python3.11/lib-dynload/_struct.cpython-311-x86_64-linux-gnu.so": 53248,
+          "/usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache": 28672,
+          "/usr/lib/locale/C.utf8/LC_CTYPE": 368640,
+          "/usr/lib/x86_64-linux-gnu/libm.so.6": 983040,
+          "/usr/lib/x86_64-linux-gnu/libc.so.6": 1994752,
+          "/usr/local/lib/libpython3.11.so.1.0": 5324800,
+          "[vvar]": 16384,
+          "[vvar_vclock]": 8192,
+          "[vdso]": 8192,
+          "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2": 225280,
+          "[stack]": 135168
+        }
+      },
+      "57": {
+        "vm_size": 30616,
+        "vm_rss": 23744,
+        "vm_data": 14076,
+        "vm_stk": 132,
+        "vm_exe": 4,
+        "vm_lib": 9140,
+        "vm_hwm": 23744,
+        "vm_swap": 0,
+        "minflt": 3614,
+        "majflt": 0,
+        "segmentos": {
+          "/usr/local/bin/python3.11": 20480,
+          "[heap]": 3383296,
+          "[anon]": 9592832,
+          "/usr/local/lib/python3.11/lib-dynload/_blake2.cpython-311-x86_64-linux-gnu.so": 53248,
+          "/usr/lib/x86_64-linux-gnu/libzstd.so.1.5.7": 827392,
+          "/usr/lib/x86_64-linux-gnu/libcrypto.so.3": 6516736,
+          "/usr/local/lib/python3.11/lib-dynload/_hashlib.cpython-311-x86_64-linux-gnu.so": 65536,
+          "/usr/local/lib/python3.11/lib-dynload/binascii.cpython-311-x86_64-linux-gnu.so": 36864,
+          "/usr/local/lib/python3.11/lib-dynload/mmap.cpython-311-x86_64-linux-gnu.so": 36864,
+          "/usr/lib/x86_64-linux-gnu/liblzma.so.5.8.1": 200704,
+          "/usr/local/lib/python3.11/lib-dynload/_lzma.cpython-311-x86_64-linux-gnu.so": 49152,
+          "/usr/lib/x86_64-linux-gnu/libbz2.so.1.0.4": 77824,
+          "/usr/local/lib/python3.11/lib-dynload/_bz2.cpython-311-x86_64-linux-gnu.so": 32768,
+          "/usr/local/lib/python3.11/lib-dynload/_decimal.cpython-311-x86_64-linux-gnu.so": 286720,
+          "/usr/local/lib/python3.11/lib-dynload/_sha512.cpython-311-x86_64-linux-gnu.so": 36864,
+          "/usr/local/lib/python3.11/lib-dynload/_random.cpython-311-x86_64-linux-gnu.so": 24576,
+          "/usr/local/lib/python3.11/lib-dynload/_bisect.cpython-311-x86_64-linux-gnu.so": 20480,
+          "/usr/local/lib/python3.11/lib-dynload/_opcode.cpython-311-x86_64-linux-gnu.so": 20480,
+          "/usr/local/lib/python3.11/lib-dynload/_typing.cpython-311-x86_64-linux-gnu.so": 20480,
+          "/usr/local/lib/python3.11/lib-dynload/_datetime.cpython-311-x86_64-linux-gnu.so": 110592,
+          "/usr/local/lib/python3.11/lib-dynload/_queue.cpython-311-x86_64-linux-gnu.so": 24576,
+          "/usr/local/lib/python3.11/lib-dynload/_heapq.cpython-311-x86_64-linux-gnu.so": 32768,
+          "/usr/local/lib/python3.11/lib-dynload/_json.cpython-311-x86_64-linux-gnu.so": 49152,
+          "/usr/local/lib/python3.11/lib-dynload/_posixshmem.cpython-311-x86_64-linux-gnu.so": 20480,
+          "/usr/local/lib/python3.11/lib-dynload/_multiprocessing.cpython-311-x86_64-linux-gnu.so": 24576,
+          "/usr/local/lib/python3.11/lib-dynload/_posixsubprocess.cpython-311-x86_64-linux-gnu.so": 32768,
+          "/usr/local/lib/python3.11/lib-dynload/fcntl.cpython-311-x86_64-linux-gnu.so": 28672,
+          "/usr/local/lib/python3.11/lib-dynload/array.cpython-311-x86_64-linux-gnu.so": 65536,
+          "/usr/local/lib/python3.11/lib-dynload/select.cpython-311-x86_64-linux-gnu.so": 36864,
+          "/usr/local/lib/python3.11/lib-dynload/math.cpython-311-x86_64-linux-gnu.so": 65536,
+          "/dev/shm/sem.mp-htlei7z4": 4096,
+          "/dev/shm/sem.mp-v0uahcct": 4096,
+          "/usr/lib/x86_64-linux-gnu/libz.so.1.3.1": 131072,
+          "/dev/shm/sem.mp-etydha16": 4096,
+          "/dev/shm/sem.mp-l9_qfho_": 4096,
+          "/usr/local/lib/python3.11/lib-dynload/zlib.cpython-311-x86_64-linux-gnu.so": 45056,
+          "/usr/local/lib/python3.11/lib-dynload/_socket.cpython-311-x86_64-linux-gnu.so": 98304,
+          "/usr/local/lib/python3.11/lib-dynload/_pickle.cpython-311-x86_64-linux-gnu.so": 118784,
+          "/usr/local/lib/python3.11/lib-dynload/_struct.cpython-311-x86_64-linux-gnu.so": 53248,
+          "/usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache": 28672,
+          "/usr/lib/locale/C.utf8/LC_CTYPE": 368640,
+          "/usr/lib/x86_64-linux-gnu/libm.so.6": 983040,
+          "/usr/lib/x86_64-linux-gnu/libc.so.6": 1994752,
+          "/usr/local/lib/libpython3.11.so.1.0": 5324800,
+          "[vvar]": 16384,
+          "[vvar_vclock]": 8192,
+          "[vdso]": 8192,
+          "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2": 225280,
+          "[stack]": 135168
+        }
+      },
+      "58": {
+        "vm_size": 30748,
+        "vm_rss": 24164,
+        "vm_data": 14208,
+        "vm_stk": 132,
+        "vm_exe": 4,
+        "vm_lib": 9140,
+        "vm_hwm": 24164,
+        "vm_swap": 0,
+        "minflt": 3693,
+        "majflt": 0,
+        "segmentos": {
+          "/usr/local/bin/python3.11": 20480,
+          "[heap]": 3518464,
+          "[anon]": 9592832,
+          "/usr/local/lib/python3.11/lib-dynload/_blake2.cpython-311-x86_64-linux-gnu.so": 53248,
+          "/usr/lib/x86_64-linux-gnu/libzstd.so.1.5.7": 827392,
+          "/usr/lib/x86_64-linux-gnu/libcrypto.so.3": 6516736,
+          "/usr/local/lib/python3.11/lib-dynload/_hashlib.cpython-311-x86_64-linux-gnu.so": 65536,
+          "/usr/local/lib/python3.11/lib-dynload/binascii.cpython-311-x86_64-linux-gnu.so": 36864,
+          "/usr/local/lib/python3.11/lib-dynload/mmap.cpython-311-x86_64-linux-gnu.so": 36864,
+          "/usr/lib/x86_64-linux-gnu/liblzma.so.5.8.1": 200704,
+          "/usr/local/lib/python3.11/lib-dynload/_lzma.cpython-311-x86_64-linux-gnu.so": 49152,
+          "/usr/lib/x86_64-linux-gnu/libbz2.so.1.0.4": 77824,
+          "/usr/local/lib/python3.11/lib-dynload/_bz2.cpython-311-x86_64-linux-gnu.so": 32768,
+          "/usr/local/lib/python3.11/lib-dynload/_decimal.cpython-311-x86_64-linux-gnu.so": 286720,
+          "/usr/local/lib/python3.11/lib-dynload/_sha512.cpython-311-x86_64-linux-gnu.so": 36864,
+          "/usr/local/lib/python3.11/lib-dynload/_random.cpython-311-x86_64-linux-gnu.so": 24576,
+          "/usr/local/lib/python3.11/lib-dynload/_bisect.cpython-311-x86_64-linux-gnu.so": 20480,
+          "/usr/local/lib/python3.11/lib-dynload/_opcode.cpython-311-x86_64-linux-gnu.so": 20480,
+          "/usr/local/lib/python3.11/lib-dynload/_typing.cpython-311-x86_64-linux-gnu.so": 20480,
+          "/usr/local/lib/python3.11/lib-dynload/_datetime.cpython-311-x86_64-linux-gnu.so": 110592,
+          "/usr/local/lib/python3.11/lib-dynload/_queue.cpython-311-x86_64-linux-gnu.so": 24576,
+          "/usr/local/lib/python3.11/lib-dynload/_heapq.cpython-311-x86_64-linux-gnu.so": 32768,
+          "/usr/local/lib/python3.11/lib-dynload/_json.cpython-311-x86_64-linux-gnu.so": 49152,
+          "/usr/local/lib/python3.11/lib-dynload/_posixshmem.cpython-311-x86_64-linux-gnu.so": 20480,
+          "/usr/local/lib/python3.11/lib-dynload/_multiprocessing.cpython-311-x86_64-linux-gnu.so": 24576,
+          "/usr/local/lib/python3.11/lib-dynload/_posixsubprocess.cpython-311-x86_64-linux-gnu.so": 32768,
+          "/usr/local/lib/python3.11/lib-dynload/fcntl.cpython-311-x86_64-linux-gnu.so": 28672,
+          "/usr/local/lib/python3.11/lib-dynload/array.cpython-311-x86_64-linux-gnu.so": 65536,
+          "/usr/local/lib/python3.11/lib-dynload/select.cpython-311-x86_64-linux-gnu.so": 36864,
+          "/usr/local/lib/python3.11/lib-dynload/math.cpython-311-x86_64-linux-gnu.so": 65536,
+          "/dev/shm/sem.mp-htlei7z4": 4096,
+          "/dev/shm/sem.mp-v0uahcct": 4096,
+          "/usr/lib/x86_64-linux-gnu/libz.so.1.3.1": 131072,
+          "/dev/shm/sem.mp-etydha16": 4096,
+          "/dev/shm/sem.mp-l9_qfho_": 4096,
+          "/usr/local/lib/python3.11/lib-dynload/zlib.cpython-311-x86_64-linux-gnu.so": 45056,
+          "/usr/local/lib/python3.11/lib-dynload/_socket.cpython-311-x86_64-linux-gnu.so": 98304,
+          "/usr/local/lib/python3.11/lib-dynload/_pickle.cpython-311-x86_64-linux-gnu.so": 118784,
+          "/usr/local/lib/python3.11/lib-dynload/_struct.cpython-311-x86_64-linux-gnu.so": 53248,
+          "/usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache": 28672,
+          "/usr/lib/locale/C.utf8/LC_CTYPE": 368640,
+          "/usr/lib/x86_64-linux-gnu/libm.so.6": 983040,
+          "/usr/lib/x86_64-linux-gnu/libc.so.6": 1994752,
+          "/usr/local/lib/libpython3.11.so.1.0": 5324800,
+          "[vvar]": 16384,
+          "[vvar_vclock]": 8192,
+          "[vdso]": 8192,
+          "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2": 225280,
+          "[stack]": 135168
+        }
+      },
+      "59": {
+        "vm_size": 105364,
+        "vm_rss": 26064,
+        "vm_data": 23720,
+        "vm_stk": 132,
+        "vm_exe": 4,
+        "vm_lib": 9140,
+        "vm_hwm": 26064,
+        "vm_swap": 0,
+        "minflt": 4123,
+        "majflt": 0,
+        "segmentos": {
+          "/usr/local/bin/python3.11": 20480,
+          "[heap]": 3354624,
+          "[anon]": 86159360,
+          "/usr/local/lib/python3.11/lib-dynload/_blake2.cpython-311-x86_64-linux-gnu.so": 53248,
+          "/usr/lib/x86_64-linux-gnu/libzstd.so.1.5.7": 827392,
+          "/usr/lib/x86_64-linux-gnu/libcrypto.so.3": 6516736,
+          "/usr/local/lib/python3.11/lib-dynload/_hashlib.cpython-311-x86_64-linux-gnu.so": 65536,
+          "/usr/local/lib/python3.11/lib-dynload/binascii.cpython-311-x86_64-linux-gnu.so": 36864,
+          "/usr/local/lib/python3.11/lib-dynload/mmap.cpython-311-x86_64-linux-gnu.so": 36864,
+          "/usr/lib/x86_64-linux-gnu/liblzma.so.5.8.1": 200704,
+          "/usr/local/lib/python3.11/lib-dynload/_lzma.cpython-311-x86_64-linux-gnu.so": 49152,
+          "/usr/lib/x86_64-linux-gnu/libbz2.so.1.0.4": 77824,
+          "/usr/local/lib/python3.11/lib-dynload/_bz2.cpython-311-x86_64-linux-gnu.so": 32768,
+          "/usr/local/lib/python3.11/lib-dynload/_decimal.cpython-311-x86_64-linux-gnu.so": 286720,
+          "/usr/local/lib/python3.11/lib-dynload/_sha512.cpython-311-x86_64-linux-gnu.so": 36864,
+          "/usr/local/lib/python3.11/lib-dynload/_random.cpython-311-x86_64-linux-gnu.so": 24576,
+          "/usr/local/lib/python3.11/lib-dynload/_bisect.cpython-311-x86_64-linux-gnu.so": 20480,
+          "/usr/local/lib/python3.11/lib-dynload/_opcode.cpython-311-x86_64-linux-gnu.so": 20480,
+          "/usr/local/lib/python3.11/lib-dynload/_typing.cpython-311-x86_64-linux-gnu.so": 20480,
+          "/usr/local/lib/python3.11/lib-dynload/_datetime.cpython-311-x86_64-linux-gnu.so": 110592,
+          "/usr/local/lib/python3.11/lib-dynload/_queue.cpython-311-x86_64-linux-gnu.so": 24576,
+          "/usr/local/lib/python3.11/lib-dynload/_heapq.cpython-311-x86_64-linux-gnu.so": 32768,
+          "/usr/local/lib/python3.11/lib-dynload/_json.cpython-311-x86_64-linux-gnu.so": 49152,
+          "/usr/local/lib/python3.11/lib-dynload/_posixshmem.cpython-311-x86_64-linux-gnu.so": 20480,
+          "/usr/local/lib/python3.11/lib-dynload/_multiprocessing.cpython-311-x86_64-linux-gnu.so": 24576,
+          "/usr/local/lib/python3.11/lib-dynload/_posixsubprocess.cpython-311-x86_64-linux-gnu.so": 32768,
+          "/usr/local/lib/python3.11/lib-dynload/fcntl.cpython-311-x86_64-linux-gnu.so": 28672,
+          "/usr/local/lib/python3.11/lib-dynload/array.cpython-311-x86_64-linux-gnu.so": 65536,
+          "/usr/local/lib/python3.11/lib-dynload/select.cpython-311-x86_64-linux-gnu.so": 36864,
+          "/usr/local/lib/python3.11/lib-dynload/math.cpython-311-x86_64-linux-gnu.so": 65536,
+          "/dev/shm/sem.mp-av4u0qkm": 4096,
+          "/dev/shm/sem.mp-uj6b6gt7": 4096,
+          "/dev/shm/sem.mp-wyf9_67a": 4096,
+          "/usr/lib/x86_64-linux-gnu/libz.so.1.3.1": 131072,
+          "/dev/shm/sem.mp-zvk081jw": 4096,
+          "/dev/shm/sem.mp-zw32qxly": 4096,
+          "/usr/local/lib/python3.11/lib-dynload/zlib.cpython-311-x86_64-linux-gnu.so": 45056,
+          "/usr/local/lib/python3.11/lib-dynload/_socket.cpython-311-x86_64-linux-gnu.so": 98304,
+          "/usr/local/lib/python3.11/lib-dynload/_pickle.cpython-311-x86_64-linux-gnu.so": 118784,
+          "/usr/local/lib/python3.11/lib-dynload/_struct.cpython-311-x86_64-linux-gnu.so": 53248,
+          "/usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache": 28672,
+          "/usr/lib/locale/C.utf8/LC_CTYPE": 368640,
+          "/usr/lib/x86_64-linux-gnu/libm.so.6": 983040,
+          "/usr/lib/x86_64-linux-gnu/libc.so.6": 1994752,
+          "/usr/local/lib/libpython3.11.so.1.0": 5324800,
+          "[vvar]": 16384,
+          "[vvar_vclock]": 8192,
+          "[vdso]": 8192,
+          "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2": 225280,
+          "[stack]": 135168
+        }
+      }
+    }
+  },
+  "fds": {
+    "ts": 1787094768.001231,
+    "datos": {
+      "1": [
+        {
+          "n": 0,
+          "destino": "/dev/pts/0",
+          "tipo": "tty"
+        },
+        {
+          "n": 1,
+          "destino": "/dev/pts/0",
+          "tipo": "tty"
+        },
+        {
+          "n": 2,
+          "destino": "/dev/pts/0",
+          "tipo": "tty"
+        },
+        {
+          "n": 3,
+          "destino": "socket:[1723654]",
+          "tipo": "socket"
+        },
+        {
+          "n": 4,
+          "destino": "socket:[1738792]",
+          "tipo": "socket"
+        },
+        {
+          "n": 5,
+          "destino": "pipe:[1723648]",
+          "tipo": "pipe"
+        },
+        {
+          "n": 6,
+          "destino": "pipe:[1723646]",
+          "tipo": "pipe"
+        },
+        {
+          "n": 7,
+          "destino": "pipe:[1738821]",
+          "tipo": "pipe"
+        },
+        {
+          "n": 8,
+          "destino": "pipe:[1723656]",
+          "tipo": "pipe"
+        },
+        {
+          "n": 9,
+          "destino": "pipe:[1723649]",
+          "tipo": "pipe"
+        },
+        {
+          "n": 10,
+          "destino": "pipe:[1738821]",
+          "tipo": "pipe"
+        },
+        {
+          "n": 11,
+          "destino": "pipe:[1738822]",
+          "tipo": "pipe"
+        },
+        {
+          "n": 12,
+          "destino": "pipe:[1723657]",
+          "tipo": "pipe"
+        },
+        {
+          "n": 13,
+          "destino": "pipe:[1738822]",
+          "tipo": "pipe"
+        },
+        {
+          "n": 14,
+          "destino": "pipe:[1738823]",
+          "tipo": "pipe"
+        },
+        {
+          "n": 15,
+          "destino": "pipe:[1738826]",
+          "tipo": "pipe"
+        },
+        {
+          "n": 16,
+          "destino": "pipe:[1738829]",
+          "tipo": "pipe"
+        },
+        {
+          "n": 17,
+          "destino": "pipe:[1738824]",
+          "tipo": "pipe"
+        },
+        {
+          "n": 18,
+          "destino": "pipe:[1738832]",
+          "tipo": "pipe"
+        },
+        {
+          "n": 19,
+          "destino": "pipe:[1738827]",
+          "tipo": "pipe"
+        },
+        {
+          "n": 20,
+          "destino": "pipe:[1738835]",
+          "tipo": "pipe"
+        },
+        {
+          "n": 21,
+          "destino": "pipe:[1738830]",
+          "tipo": "pipe"
+        },
+        {
+          "n": 22,
+          "destino": "pipe:[1738838]",
+          "tipo": "pipe"
+        },
+        {
+          "n": 23,
+          "destino": "pipe:[1738833]",
+          "tipo": "pipe"
+        },
+        {
+          "n": 24,
+          "destino": "pipe:[1738841]",
+          "tipo": "pipe"
+        },
+        {
+          "n": 25,
+          "destino": "pipe:[1738836]",
+          "tipo": "pipe"
+        },
+        {
+          "n": 26,
+          "destino": "pipe:[1738844]",
+          "tipo": "pipe"
+        },
+        {
+          "n": 27,
+          "destino": "pipe:[1738839]",
+          "tipo": "pipe"
+        },
+        {
+          "n": 28,
+          "destino": "pipe:[1738847]",
+          "tipo": "pipe"
+        },
+        {
+          "n": 29,
+          "destino": "pipe:[1738842]",
+          "tipo": "pipe"
+        },
+        {
+          "n": 31,
+          "destino": "pipe:[1738845]",
+          "tipo": "pipe"
+        },
+        {
+          "n": 33,
+          "destino": "pipe:[1738848]",
+          "tipo": "pipe"
+        }
+      ],
+      "7": [
+        {
+          "n": 0,
+          "destino": "/dev/pts/0",
+          "tipo": "tty"
+        },
+        {
+          "n": 1,
+          "destino": "/dev/pts/0",
+          "tipo": "tty"
+        },
+        {
+          "n": 2,
+          "destino": "/dev/pts/0",
+          "tipo": "tty"
+        },
+        {
+          "n": 5,
+          "destino": "pipe:[1723646]",
+          "tipo": "pipe"
+        }
+      ],
+      "8": [
+        {
+          "n": 0,
+          "destino": "/dev/pts/0",
+          "tipo": "tty"
+        },
+        {
+          "n": 1,
+          "destino": "/dev/pts/0",
+          "tipo": "tty"
+        },
+        {
+          "n": 2,
+          "destino": "/dev/pts/0",
+          "tipo": "tty"
+        },
+        {
+          "n": 3,
+          "destino": "pipe:[1723649]",
+          "tipo": "pipe"
+        },
+        {
+          "n": 4,
+          "destino": "socket:[1737931]",
+          "tipo": "socket"
+        },
+        {
+          "n": 5,
+          "destino": "/dev/null",
+          "tipo": "file"
+        },
+        {
+          "n": 6,
+          "destino": "pipe:[1723646]",
+          "tipo": "pipe"
+        },
+        {
+          "n": 7,
+          "destino": "pipe:[1723648]",
+          "tipo": "pipe"
+        },
+        {
+          "n": 8,
+          "destino": "socket:[1714080]",
+          "tipo": "socket"
+        },
+        {
+          "n": 9,
+          "destino": "socket:[1737930]",
+          "tipo": "socket"
+        },
+        {
+          "n": 10,
+          "destino": "socket:[1714081]",
+          "tipo": "socket"
+        },
+        {
+          "n": 11,
+          "destino": "socket:[1714082]",
+          "tipo": "socket"
+        },
+        {
+          "n": 12,
+          "destino": "socket:[1742078]",
+          "tipo": "socket"
+        },
+        {
+          "n": 13,
+          "destino": "socket:[1742153]",
+          "tipo": "socket"
+        },
+        {
+          "n": 14,
+          "destino": "socket:[1742154]",
+          "tipo": "socket"
+        },
+        {
+          "n": 15,
+          "destino": "socket:[1742249]",
+          "tipo": "socket"
+        },
+        {
+          "n": 16,
+          "destino": "socket:[1742763]",
+          "tipo": "socket"
+        }
+      ],
+      "14": [
+        {
+          "n": 0,
+          "destino": "/dev/pts/0",
+          "tipo": "tty"
+        },
+        {
+          "n": 1,
+          "destino": "/dev/pts/0",
+          "tipo": "tty"
+        },
+        {
+          "n": 2,
+          "destino": "/dev/pts/0",
+          "tipo": "tty"
+        },
+        {
+          "n": 3,
+          "destino": "pipe:[1723657]",
+          "tipo": "pipe"
+        },
+        {
+          "n": 4,
+          "destino": "/dev/null",
+          "tipo": "file"
+        },
+        {
+          "n": 5,
+          "destino": "socket:[1738786]",
+          "tipo": "socket"
+        },
+        {
+          "n": 6,
+          "destino": "pipe:[1723646]",
+          "tipo": "pipe"
+        },
+        {
+          "n": 7,
+          "destino": "socket:[1729044]",
+          "tipo": "socket"
+        },
+        {
+          "n": 9,
+          "destino": "socket:[2624733]",
+          "tipo": "socket"
+        },
+        {
+          "n": 10,
+          "destino": "pipe:[1723656]",
+          "tipo": "pipe"
+        }
+      ],
+      "51": [
+        {
+          "n": 0,
+          "destino": "/dev/pts/0",
+          "tipo": "tty"
+        },
+        {
+          "n": 1,
+          "destino": "/dev/pts/0",
+          "tipo": "tty"
+        },
+        {
+          "n": 2,
+          "destino": "/dev/pts/0",
+          "tipo": "tty"
+        },
+        {
+          "n": 3,
+          "destino": "pipe:[1738824]",
+          "tipo": "pipe"
+        },
+        {
+          "n": 4,
+          "destino": "/dev/null",
+          "tipo": "file"
+        },
+        {
+          "n": 6,
+          "destino": "pipe:[1723646]",
+          "tipo": "pipe"
+        },
+        {
+          "n": 7,
+          "destino": "pipe:[1738821]",
+          "tipo": "pipe"
+        },
+        {
+          "n": 10,
+          "destino": "pipe:[1738821]",
+          "tipo": "pipe"
+        },
+        {
+          "n": 15,
+          "destino": "pipe:[1738823]",
+          "tipo": "pipe"
+        }
+      ],
+      "52": [
+        {
+          "n": 0,
+          "destino": "/dev/pts/0",
+          "tipo": "tty"
+        },
+        {
+          "n": 1,
+          "destino": "/dev/pts/0",
+          "tipo": "tty"
+        },
+        {
+          "n": 2,
+          "destino": "/dev/pts/0",
+          "tipo": "tty"
+        },
+        {
+          "n": 3,
+          "destino": "pipe:[1738827]",
+          "tipo": "pipe"
+        },
+        {
+          "n": 4,
+          "destino": "/dev/null",
+          "tipo": "file"
+        },
+        {
+          "n": 5,
+          "destino": "socket:[1697501]",
+          "tipo": "socket"
+        },
+        {
+          "n": 6,
+          "destino": "pipe:[1723646]",
+          "tipo": "pipe"
+        },
+        {
+          "n": 7,
+          "destino": "pipe:[1738821]",
+          "tipo": "pipe"
+        },
+        {
+          "n": 10,
+          "destino": "pipe:[1738821]",
+          "tipo": "pipe"
+        },
+        {
+          "n": 16,
+          "destino": "pipe:[1738826]",
+          "tipo": "pipe"
+        }
+      ],
+      "53": [
+        {
+          "n": 0,
+          "destino": "/dev/pts/0",
+          "tipo": "tty"
+        },
+        {
+          "n": 1,
+          "destino": "/dev/pts/0",
+          "tipo": "tty"
+        },
+        {
+          "n": 2,
+          "destino": "/dev/pts/0",
+          "tipo": "tty"
+        },
+        {
+          "n": 3,
+          "destino": "pipe:[1738830]",
+          "tipo": "pipe"
+        },
+        {
+          "n": 4,
+          "destino": "/dev/null",
+          "tipo": "file"
+        },
+        {
+          "n": 5,
+          "destino": "socket:[1739362]",
+          "tipo": "socket"
+        },
+        {
+          "n": 6,
+          "destino": "pipe:[1723646]",
+          "tipo": "pipe"
+        },
+        {
+          "n": 7,
+          "destino": "pipe:[1738821]",
+          "tipo": "pipe"
+        },
+        {
+          "n": 10,
+          "destino": "pipe:[1738821]",
+          "tipo": "pipe"
+        },
+        {
+          "n": 18,
+          "destino": "pipe:[1738829]",
+          "tipo": "pipe"
+        }
+      ],
+      "54": [
+        {
+          "n": 0,
+          "destino": "/dev/pts/0",
+          "tipo": "tty"
+        },
+        {
+          "n": 1,
+          "destino": "/dev/pts/0",
+          "tipo": "tty"
+        },
+        {
+          "n": 2,
+          "destino": "/dev/pts/0",
+          "tipo": "tty"
+        },
+        {
+          "n": 3,
+          "destino": "pipe:[1738833]",
+          "tipo": "pipe"
+        },
+        {
+          "n": 4,
+          "destino": "/dev/null",
+          "tipo": "file"
+        },
+        {
+          "n": 5,
+          "destino": "socket:[1738020]",
+          "tipo": "socket"
+        },
+        {
+          "n": 6,
+          "destino": "pipe:[1723646]",
+          "tipo": "pipe"
+        },
+        {
+          "n": 7,
+          "destino": "pipe:[1738821]",
+          "tipo": "pipe"
+        },
+        {
+          "n": 10,
+          "destino": "pipe:[1738821]",
+          "tipo": "pipe"
+        },
+        {
+          "n": 20,
+          "destino": "pipe:[1738832]",
+          "tipo": "pipe"
+        }
+      ],
+      "55": [
+        {
+          "n": 0,
+          "destino": "/dev/pts/0",
+          "tipo": "tty"
+        },
+        {
+          "n": 1,
+          "destino": "/dev/pts/0",
+          "tipo": "tty"
+        },
+        {
+          "n": 2,
+          "destino": "/dev/pts/0",
+          "tipo": "tty"
+        },
+        {
+          "n": 3,
+          "destino": "pipe:[1738836]",
+          "tipo": "pipe"
+        },
+        {
+          "n": 4,
+          "destino": "/dev/null",
+          "tipo": "file"
+        },
+        {
+          "n": 5,
+          "destino": "socket:[1672831]",
+          "tipo": "socket"
+        },
+        {
+          "n": 6,
+          "destino": "pipe:[1723646]",
+          "tipo": "pipe"
+        },
+        {
+          "n": 7,
+          "destino": "pipe:[1738821]",
+          "tipo": "pipe"
+        },
+        {
+          "n": 10,
+          "destino": "pipe:[1738821]",
+          "tipo": "pipe"
+        },
+        {
+          "n": 22,
+          "destino": "pipe:[1738835]",
+          "tipo": "pipe"
+        }
+      ],
+      "56": [
+        {
+          "n": 0,
+          "destino": "/dev/pts/0",
+          "tipo": "tty"
+        },
+        {
+          "n": 1,
+          "destino": "/dev/pts/0",
+          "tipo": "tty"
+        },
+        {
+          "n": 2,
+          "destino": "/dev/pts/0",
+          "tipo": "tty"
+        },
+        {
+          "n": 3,
+          "destino": "pipe:[1738839]",
+          "tipo": "pipe"
+        },
+        {
+          "n": 4,
+          "destino": "/dev/null",
+          "tipo": "file"
+        },
+        {
+          "n": 5,
+          "destino": "socket:[1743468]",
+          "tipo": "socket"
+        },
+        {
+          "n": 6,
+          "destino": "pipe:[1723646]",
+          "tipo": "pipe"
+        },
+        {
+          "n": 7,
+          "destino": "pipe:[1738821]",
+          "tipo": "pipe"
+        },
+        {
+          "n": 10,
+          "destino": "pipe:[1738821]",
+          "tipo": "pipe"
+        },
+        {
+          "n": 24,
+          "destino": "pipe:[1738838]",
+          "tipo": "pipe"
+        }
+      ],
+      "57": [
+        {
+          "n": 0,
+          "destino": "/dev/pts/0",
+          "tipo": "tty"
+        },
+        {
+          "n": 1,
+          "destino": "/dev/pts/0",
+          "tipo": "tty"
+        },
+        {
+          "n": 2,
+          "destino": "/dev/pts/0",
+          "tipo": "tty"
+        },
+        {
+          "n": 3,
+          "destino": "pipe:[1738842]",
+          "tipo": "pipe"
+        },
+        {
+          "n": 4,
+          "destino": "/dev/null",
+          "tipo": "file"
+        },
+        {
+          "n": 5,
+          "destino": "socket:[1735152]",
+          "tipo": "socket"
+        },
+        {
+          "n": 6,
+          "destino": "pipe:[1723646]",
+          "tipo": "pipe"
+        },
+        {
+          "n": 7,
+          "destino": "pipe:[1738821]",
+          "tipo": "pipe"
+        },
+        {
+          "n": 10,
+          "destino": "pipe:[1738821]",
+          "tipo": "pipe"
+        },
+        {
+          "n": 26,
+          "destino": "pipe:[1738841]",
+          "tipo": "pipe"
+        }
+      ],
+      "58": [
+        {
+          "n": 0,
+          "destino": "/dev/pts/0",
+          "tipo": "tty"
+        },
+        {
+          "n": 1,
+          "destino": "/dev/pts/0",
+          "tipo": "tty"
+        },
+        {
+          "n": 2,
+          "destino": "/dev/pts/0",
+          "tipo": "tty"
+        },
+        {
+          "n": 3,
+          "destino": "pipe:[1738845]",
+          "tipo": "pipe"
+        },
+        {
+          "n": 4,
+          "destino": "/dev/null",
+          "tipo": "file"
+        },
+        {
+          "n": 5,
+          "destino": "socket:[1736156]",
+          "tipo": "socket"
+        },
+        {
+          "n": 6,
+          "destino": "pipe:[1723646]",
+          "tipo": "pipe"
+        },
+        {
+          "n": 7,
+          "destino": "pipe:[1738821]",
+          "tipo": "pipe"
+        },
+        {
+          "n": 10,
+          "destino": "pipe:[1738821]",
+          "tipo": "pipe"
+        },
+        {
+          "n": 28,
+          "destino": "pipe:[1738844]",
+          "tipo": "pipe"
+        }
+      ],
+      "59": [
+        {
+          "n": 0,
+          "destino": "/dev/pts/0",
+          "tipo": "tty"
+        },
+        {
+          "n": 1,
+          "destino": "/dev/pts/0",
+          "tipo": "tty"
+        },
+        {
+          "n": 2,
+          "destino": "/dev/pts/0",
+          "tipo": "tty"
+        },
+        {
+          "n": 3,
+          "destino": "pipe:[1738848]",
+          "tipo": "pipe"
+        },
+        {
+          "n": 4,
+          "destino": "/dev/null",
+          "tipo": "file"
+        },
+        {
+          "n": 5,
+          "destino": "socket:[2583174]",
+          "tipo": "socket"
+        },
+        {
+          "n": 6,
+          "destino": "pipe:[1723646]",
+          "tipo": "pipe"
+        },
+        {
+          "n": 7,
+          "destino": "socket:[1734034]",
+          "tipo": "socket"
+        },
+        {
+          "n": 8,
+          "destino": "socket:[2583175]",
+          "tipo": "socket"
+        },
+        {
+          "n": 30,
+          "destino": "pipe:[1738847]",
+          "tipo": "pipe"
+        }
+      ]
+    }
+  },
+  "threads": {
+    "ts": 1787094769.5347807,
+    "datos": {
+      "1": [
+        {
+          "tid": 1,
+          "comm": "python",
+          "estado": "S",
+          "utime": 11,
+          "stime": 10,
+          "cpu_pct": 0.0
+        }
+      ],
+      "7": [
+        {
+          "tid": 7,
+          "comm": "python",
+          "estado": "S",
+          "utime": 3,
+          "stime": 1,
+          "cpu_pct": 0.0
+        }
+      ],
+      "8": [
+        {
+          "tid": 8,
+          "comm": "python",
+          "estado": "S",
+          "utime": 8,
+          "stime": 2,
+          "cpu_pct": 0.0
+        },
+        {
+          "tid": 9,
+          "comm": "python",
+          "estado": "S",
+          "utime": 0,
+          "stime": 0,
+          "cpu_pct": 0.0
+        },
+        {
+          "tid": 13,
+          "comm": "python",
+          "estado": "S",
+          "utime": 0,
+          "stime": 0,
+          "cpu_pct": 0.0
+        },
+        {
+          "tid": 62,
+          "comm": "python",
+          "estado": "S",
+          "utime": 0,
+          "stime": 0,
+          "cpu_pct": 0.0
+        },
+        {
+          "tid": 68,
+          "comm": "python",
+          "estado": "S",
+          "utime": 3256,
+          "stime": 1827,
+          "cpu_pct": 74.86
+        },
+        {
+          "tid": 1113,
+          "comm": "python",
+          "estado": "S",
+          "utime": 0,
+          "stime": 0,
+          "cpu_pct": 0.0
+        },
+        {
+          "tid": 2380,
+          "comm": "python",
+          "estado": "S",
+          "utime": 1,
+          "stime": 0,
+          "cpu_pct": 0.0
+        },
+        {
+          "tid": 3494,
+          "comm": "python",
+          "estado": "S",
+          "utime": 0,
+          "stime": 0,
+          "cpu_pct": 0.0
+        },
+        {
+          "tid": 4437,
+          "comm": "python",
+          "estado": "S",
+          "utime": 5,
+          "stime": 1,
+          "cpu_pct": 0.0
+        },
+        {
+          "tid": 5439,
+          "comm": "python",
+          "estado": "S",
+          "utime": 1,
+          "stime": 0,
+          "cpu_pct": 0.0
+        },
+        {
+          "tid": 6428,
+          "comm": "python",
+          "estado": "S",
+          "utime": 1,
+          "stime": 1,
+          "cpu_pct": 0.0
+        }
+      ],
+      "14": [
+        {
+          "tid": 14,
+          "comm": "python",
+          "estado": "S",
+          "utime": 6,
+          "stime": 1,
+          "cpu_pct": 0.0
+        },
+        {
+          "tid": 15,
+          "comm": "python",
+          "estado": "S",
+          "utime": 2037,
+          "stime": 3498,
+          "cpu_pct": 77.98
+        },
+        {
+          "tid": 22,
+          "comm": "python",
+          "estado": "S",
+          "utime": 0,
+          "stime": 0,
+          "cpu_pct": 0.0
+        },
+        {
+          "tid": 443739,
+          "comm": "python",
+          "estado": "S",
+          "utime": 0,
+          "stime": 0,
+          "cpu_pct": 0.0
+        },
+        {
+          "tid": 443741,
+          "comm": "python",
+          "estado": "R",
+          "utime": 0,
+          "stime": 0,
+          "cpu_pct": 0.0
+        }
+      ],
+      "51": [
+        {
+          "tid": 51,
+          "comm": "python",
+          "estado": "S",
+          "utime": 12,
+          "stime": 7,
+          "cpu_pct": 0.0
+        },
+        {
+          "tid": 60,
+          "comm": "python",
+          "estado": "S",
+          "utime": 1,
+          "stime": 0,
+          "cpu_pct": 0.0
+        }
+      ],
+      "52": [
+        {
+          "tid": 52,
+          "comm": "python",
+          "estado": "S",
+          "utime": 33,
+          "stime": 19,
+          "cpu_pct": 0.0
+        }
+      ],
+      "53": [
+        {
+          "tid": 53,
+          "comm": "python",
+          "estado": "S",
+          "utime": 58,
+          "stime": 28,
+          "cpu_pct": 3.12
+        }
+      ],
+      "54": [
+        {
+          "tid": 54,
+          "comm": "python",
+          "estado": "S",
+          "utime": 19,
+          "stime": 9,
+          "cpu_pct": 3.12
+        }
+      ],
+      "55": [
+        {
+          "tid": 55,
+          "comm": "python",
+          "estado": "R",
+          "utime": 35,
+          "stime": 19,
+          "cpu_pct": 3.12
+        }
+      ],
+      "56": [
+        {
+          "tid": 56,
+          "comm": "python",
+          "estado": "S",
+          "utime": 16,
+          "stime": 4,
+          "cpu_pct": 0.0
+        }
+      ],
+      "57": [
+        {
+          "tid": 57,
+          "comm": "python",
+          "estado": "S",
+          "utime": 14,
+          "stime": 7,
+          "cpu_pct": 0.0
+        }
+      ],
+      "58": [
+        {
+          "tid": 58,
+          "comm": "python",
+          "estado": "S",
+          "utime": 37,
+          "stime": 19,
+          "cpu_pct": 3.12
+        }
+      ],
+      "59": [
+        {
+          "tid": 59,
+          "comm": "python",
+          "estado": "R",
+          "utime": 11717,
+          "stime": 8507,
+          "cpu_pct": 290.09
+        },
+        {
+          "tid": 66,
+          "comm": "python",
+          "estado": "S",
+          "utime": 861,
+          "stime": 31,
+          "cpu_pct": 15.6
+        }
+      ]
+    }
+  },
+  "senales": {
+    "ts": 1787094769.8303785,
+    "datos": {
+      "1": {
+        "SigBlk": "0000000000000000",
+        "SigIgn": "0000000001001000",
+        "SigCgt": "0000000000004a03",
+        "SigPnd": "0000000000000000",
+        "ShdPnd": "0000000000000000",
+        "SigBlk_nombres": [],
+        "SigIgn_nombres": [
+          "SIGALRM",
+          "SIGVTALRM"
+        ],
+        "SigCgt_nombres": [
+          "SIGHUP",
+          "SIGINT",
+          "SIGUSR1",
+          "SIGPIPE",
+          "SIGSTKFLT"
+        ]
+      },
+      "7": {
+        "SigBlk": "0000000000000000",
+        "SigIgn": "0000000001005002",
+        "SigCgt": "0000000000000000",
+        "SigPnd": "0000000000000000",
+        "ShdPnd": "0000000000000000",
+        "SigBlk_nombres": [],
+        "SigIgn_nombres": [
+          "SIGINT",
+          "SIGALRM",
+          "SIGSTKFLT",
+          "SIGVTALRM"
+        ],
+        "SigCgt_nombres": []
+      },
+      "8": {
+        "SigBlk": "0000000000000000",
+        "SigIgn": "0000000001001002",
+        "SigCgt": "0000000100000000",
+        "SigPnd": "0000000000000000",
+        "ShdPnd": "0000000000000000",
+        "SigBlk_nombres": [],
+        "SigIgn_nombres": [
+          "SIGINT",
+          "SIGALRM",
+          "SIGVTALRM"
+        ],
+        "SigCgt_nombres": [
+          "SIGRTMIN+2"
+        ]
+      },
+      "14": {
+        "SigBlk": "0000000000000000",
+        "SigIgn": "0000000001001002",
+        "SigCgt": "0000000100000000",
+        "SigPnd": "0000000000000000",
+        "ShdPnd": "0000000000000000",
+        "SigBlk_nombres": [],
+        "SigIgn_nombres": [
+          "SIGINT",
+          "SIGALRM",
+          "SIGVTALRM"
+        ],
+        "SigCgt_nombres": [
+          "SIGRTMIN+2"
+        ]
+      },
+      "51": {
+        "SigBlk": "0000000000000000",
+        "SigIgn": "0000000001001000",
+        "SigCgt": "0000000100000002",
+        "SigPnd": "0000000000000000",
+        "ShdPnd": "0000000000000000",
+        "SigBlk_nombres": [],
+        "SigIgn_nombres": [
+          "SIGALRM",
+          "SIGVTALRM"
+        ],
+        "SigCgt_nombres": [
+          "SIGINT",
+          "SIGRTMIN+2"
+        ]
+      },
+      "52": {
+        "SigBlk": "0000000000000000",
+        "SigIgn": "0000000001001000",
+        "SigCgt": "0000000000000002",
+        "SigPnd": "0000000000000000",
+        "ShdPnd": "0000000000000000",
+        "SigBlk_nombres": [],
+        "SigIgn_nombres": [
+          "SIGALRM",
+          "SIGVTALRM"
+        ],
+        "SigCgt_nombres": [
+          "SIGINT"
+        ]
+      },
+      "53": {
+        "SigBlk": "0000000000000000",
+        "SigIgn": "0000000001001000",
+        "SigCgt": "0000000000000002",
+        "SigPnd": "0000000000000000",
+        "ShdPnd": "0000000000000000",
+        "SigBlk_nombres": [],
+        "SigIgn_nombres": [
+          "SIGALRM",
+          "SIGVTALRM"
+        ],
+        "SigCgt_nombres": [
+          "SIGINT"
+        ]
+      },
+      "54": {
+        "SigBlk": "0000000000000000",
+        "SigIgn": "0000000001001000",
+        "SigCgt": "0000000000000002",
+        "SigPnd": "0000000000000000",
+        "ShdPnd": "0000000000000000",
+        "SigBlk_nombres": [],
+        "SigIgn_nombres": [
+          "SIGALRM",
+          "SIGVTALRM"
+        ],
+        "SigCgt_nombres": [
+          "SIGINT"
+        ]
+      },
+      "55": {
+        "SigBlk": "0000000000000000",
+        "SigIgn": "0000000001001000",
+        "SigCgt": "0000000000000002",
+        "SigPnd": "0000000000000000",
+        "ShdPnd": "0000000000000000",
+        "SigBlk_nombres": [],
+        "SigIgn_nombres": [
+          "SIGALRM",
+          "SIGVTALRM"
+        ],
+        "SigCgt_nombres": [
+          "SIGINT"
+        ]
+      },
+      "56": {
+        "SigBlk": "0000000000000000",
+        "SigIgn": "0000000001001000",
+        "SigCgt": "0000000000000002",
+        "SigPnd": "0000000000000000",
+        "ShdPnd": "0000000000000000",
+        "SigBlk_nombres": [],
+        "SigIgn_nombres": [
+          "SIGALRM",
+          "SIGVTALRM"
+        ],
+        "SigCgt_nombres": [
+          "SIGINT"
+        ]
+      },
+      "57": {
+        "SigBlk": "0000000000000000",
+        "SigIgn": "0000000001001000",
+        "SigCgt": "0000000000000002",
+        "SigPnd": "0000000000000000",
+        "ShdPnd": "0000000000000000",
+        "SigBlk_nombres": [],
+        "SigIgn_nombres": [
+          "SIGALRM",
+          "SIGVTALRM"
+        ],
+        "SigCgt_nombres": [
+          "SIGINT"
+        ]
+      },
+      "58": {
+        "SigBlk": "0000000000000000",
+        "SigIgn": "0000000001001000",
+        "SigCgt": "0000000000000002",
+        "SigPnd": "0000000000000000",
+        "ShdPnd": "0000000000000000",
+        "SigBlk_nombres": [],
+        "SigIgn_nombres": [
+          "SIGALRM",
+          "SIGVTALRM"
+        ],
+        "SigCgt_nombres": [
+          "SIGINT"
+        ]
+      },
+      "59": {
+        "SigBlk": "0000000000000000",
+        "SigIgn": "0000000001001000",
+        "SigCgt": "0000000100000002",
+        "SigPnd": "0000000000000000",
+        "ShdPnd": "0000000000000000",
+        "SigBlk_nombres": [],
+        "SigIgn_nombres": [
+          "SIGALRM",
+          "SIGVTALRM"
+        ],
+        "SigCgt_nombres": [
+          "SIGINT",
+          "SIGRTMIN+2"
+        ]
+      }
+    }
+  },
+  "scheduling": {
+    "ts": 1787094766.8655837,
+    "datos": {
+      "1": {
+        "priority": 20,
+        "nice": 0,
+        "rt_priority": 0,
+        "policy_code": 0,
+        "policy_nombre": "OTHER (SCHED_NORMAL)",
+        "cpus_allowed": "0-15",
+        "voluntary_ctxt": 1345,
+        "nonvoluntary_ctxt": 7,
+        "sid": 1,
+        "pgid": 1
+      },
+      "7": {
+        "priority": 20,
+        "nice": 0,
+        "rt_priority": 0,
+        "policy_code": 0,
+        "policy_nombre": "OTHER (SCHED_NORMAL)",
+        "cpus_allowed": "0-15",
+        "voluntary_ctxt": 20,
+        "nonvoluntary_ctxt": 0,
+        "sid": 1,
+        "pgid": 1
+      },
+      "8": {
+        "priority": 20,
+        "nice": 0,
+        "rt_priority": 0,
+        "policy_code": 0,
+        "policy_nombre": "OTHER (SCHED_NORMAL)",
+        "cpus_allowed": "0-15",
+        "voluntary_ctxt": 464,
+        "nonvoluntary_ctxt": 0,
+        "sid": 1,
+        "pgid": 1
+      },
+      "14": {
+        "priority": 20,
+        "nice": 0,
+        "rt_priority": 0,
+        "policy_code": 0,
+        "policy_nombre": "OTHER (SCHED_NORMAL)",
+        "cpus_allowed": "0-15",
+        "voluntary_ctxt": 609,
+        "nonvoluntary_ctxt": 0,
+        "sid": 1,
+        "pgid": 1
+      },
+      "51": {
+        "priority": 20,
+        "nice": 0,
+        "rt_priority": 0,
+        "policy_code": 0,
+        "policy_nombre": "OTHER (SCHED_NORMAL)",
+        "cpus_allowed": "0-15",
+        "voluntary_ctxt": 432,
+        "nonvoluntary_ctxt": 5,
+        "sid": 1,
+        "pgid": 1
+      },
+      "52": {
+        "priority": 20,
+        "nice": 0,
+        "rt_priority": 0,
+        "policy_code": 0,
+        "policy_nombre": "OTHER (SCHED_NORMAL)",
+        "cpus_allowed": "0-15",
+        "voluntary_ctxt": 5782,
+        "nonvoluntary_ctxt": 17,
+        "sid": 1,
+        "pgid": 1
+      },
+      "53": {
+        "priority": 20,
+        "nice": 0,
+        "rt_priority": 0,
+        "policy_code": 0,
+        "policy_nombre": "OTHER (SCHED_NORMAL)",
+        "cpus_allowed": "0-15",
+        "voluntary_ctxt": 3828,
+        "nonvoluntary_ctxt": 35,
+        "sid": 1,
+        "pgid": 1
+      },
+      "54": {
+        "priority": 20,
+        "nice": 0,
+        "rt_priority": 0,
+        "policy_code": 0,
+        "policy_nombre": "OTHER (SCHED_NORMAL)",
+        "cpus_allowed": "0-15",
+        "voluntary_ctxt": 2298,
+        "nonvoluntary_ctxt": 10,
+        "sid": 1,
+        "pgid": 1
+      },
+      "55": {
+        "priority": 20,
+        "nice": 0,
+        "rt_priority": 0,
+        "policy_code": 0,
+        "policy_nombre": "OTHER (SCHED_NORMAL)",
+        "cpus_allowed": "0-15",
+        "voluntary_ctxt": 5739,
+        "nonvoluntary_ctxt": 13,
+        "sid": 1,
+        "pgid": 1
+      },
+      "56": {
+        "priority": 20,
+        "nice": 0,
+        "rt_priority": 0,
+        "policy_code": 0,
+        "policy_nombre": "OTHER (SCHED_NORMAL)",
+        "cpus_allowed": "0-15",
+        "voluntary_ctxt": 1156,
+        "nonvoluntary_ctxt": 0,
+        "sid": 1,
+        "pgid": 1
+      },
+      "57": {
+        "priority": 20,
+        "nice": 0,
+        "rt_priority": 0,
+        "policy_code": 0,
+        "policy_nombre": "OTHER (SCHED_NORMAL)",
+        "cpus_allowed": "0-15",
+        "voluntary_ctxt": 1158,
+        "nonvoluntary_ctxt": 1,
+        "sid": 1,
+        "pgid": 1
+      },
+      "58": {
+        "priority": 20,
+        "nice": 0,
+        "rt_priority": 0,
+        "policy_code": 0,
+        "policy_nombre": "OTHER (SCHED_NORMAL)",
+        "cpus_allowed": "0-15",
+        "voluntary_ctxt": 6607,
+        "nonvoluntary_ctxt": 10,
+        "sid": 1,
+        "pgid": 1
+      },
+      "59": {
+        "priority": 20,
+        "nice": 0,
+        "rt_priority": 0,
+        "policy_code": 0,
+        "policy_nombre": "OTHER (SCHED_NORMAL)",
+        "cpus_allowed": "0-15",
+        "voluntary_ctxt": 5043672,
+        "nonvoluntary_ctxt": 3484,
+        "sid": 1,
+        "pgid": 1
+      }
+    }
+  },
+  "sistema": {
+    "ts": 1787094769.596305,
+    "datos": {
+      "cpu_pct": 7.23,
+      "cpu_campos": {
+        "user": 72502,
+        "nice": 0,
+        "system": 70996,
+        "idle": 1944237,
+        "iowait": 2128,
+        "irq": 0,
+        "softirq": 16500,
+        "steal": 0,
+        "guest": 0,
+        "guest_nice": 0
+      },
+      "mem_total": 7974568,
+      "mem_free": 5533420,
+      "mem_available": 6904428,
+      "buffers": 63120,
+      "cached": 1451684,
+      "swap_total": 2097152,
+      "swap_free": 2097152,
+      "loadavg": {
+        "1min": 1.48,
+        "5min": 1.57,
+        "15min": 1.21,
+        "running_total": "3/418"
+      },
+      "uptime": {
+        "uptime": 1316.89,
+        "idle": 19442.37
+      },
+      "btime": 1787093452,
+      "total_procesos": 13,
+      "conteo_estados": {
+        "S": 11,
+        "R": 2
+      },
+      "total_threads": 28,
+      "zombies": 0,
+      "top_cpu": [],
+      "top_mem": [],
+      "n_cpus": 16
+    }
+  }
+}

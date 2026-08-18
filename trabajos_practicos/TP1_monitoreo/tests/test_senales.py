@@ -3,20 +3,24 @@
 import os
 import signal
 import sys
-
 import pytest
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
-from src import senales  # noqa: E402
+from src import senales
+
+pytestmark = pytest.mark.skipif(
+    not hasattr(os, "set_blocking") or not hasattr(signal, "SIGHUP"),
+    reason="Pruebas de señales y self-pipe requieren soporte POSIX / Linux nativo"
+)
 
 
 def test_crear_self_pipe_devuelve_dos_fds_distintos():
     r, w = senales.crear_self_pipe()
     try:
-        assert isinstance(r, int)
-        assert isinstance(w, int)
         assert r != w
+        assert r >= 0
+        assert w >= 0
     finally:
         os.close(r)
         os.close(w)
