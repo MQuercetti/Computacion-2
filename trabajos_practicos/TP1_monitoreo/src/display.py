@@ -74,17 +74,24 @@ KEY_LEFT = "KEY_LEFT"
 
 
 def _teclado_thread(q_teclas):
-    """Lee teclas de stdin en un thread daemon y las pone en la queue.
+    """Lee teclas del terminal de control en un thread daemon y las pone en la queue.
 
-    Si stdin es una TTY real entra en modo cbreak: las teclas llegan de
-    a una, sin necesidad de Enter, y las flechas (ESC [ A/B/C/D) llegan
-    crudas para que las decodifiquemos nosotros.
-    Si stdin no es una TTY (pipe/redir) caemos al modo simple: el resto
-    de los keybindings siguen funcionando, las flechas no.
+    El display corre en un proceso hijo lanzado con `spawn`, así que
+    multiprocessing le redirige stdin a /dev/null — por eso no podemos
+    leer de sys.stdin: os.isatty(0) siempre daría False y el thread
+    terminaría en la primera vuelta.
+
+    Solución: abrir explícitamente la terminal de control con
+    os.open("/dev/tty", O_RDONLY) y usar ese fd para isatty, setcbreak
+    y read. Si /dev/tty no existe (no estamos en una TTY real — pipe,
+    redir, etc.) caemos al modo simple: el resto de los keybindings
+    siguen funcionando, las flechas no.
     """
+    fd = None
     try:
-        fd = sys.stdin.fileno()
-    except (ValueError, OSError):
+        fd = os.open("/dev/tty", os.O_RDONLY)
+    except (OSError, AttributeError):
+        # /dev/tty no disponible (Windows sin consola, redirección, etc.).
         return
 
     is_tty = False
@@ -162,6 +169,11 @@ def _teclado_thread(q_teclas):
                 import termios
                 termios.tcsetattr(fd, termios.TCSAFLUSH, old_attrs)
             except (ImportError, termios.error, OSError):
+                pass
+        if fd is not None:
+            try:
+                os.close(fd)
+            except OSError:
                 pass
 
 
@@ -630,9 +642,10 @@ def display_loop(snapshot, intervalos, verbose_flag, stop_event=None):
                 layout["procs"].update(_armar_lista_procesos(snapshot, estado))
                 layout["detalle"].update(_vista_detalle(snapshot, estado, verbose))
 
-                # NO usar time.sleep acá: rich.Live ya tiene su propio loop de
-                # refresco a refresh_per_second=4. Dormir desde el hilo principal
-                # desincroniza con ese loop y produce parpadeo visible.
+                # Pequeño sleep para no girar a máxima velocidad: los datos
+                # cambian cada 2s y rich.Live ya tiene su propio
+                # refresh_per_second independiente para el refresco visual.
+                time.sleep(0.1)
     except KeyboardInterrupt:
         pass
 

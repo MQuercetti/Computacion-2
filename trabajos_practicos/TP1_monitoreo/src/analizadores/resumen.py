@@ -26,11 +26,15 @@ def analizar(pids, snapshot, intervalos, verbose):
     esperado porque no hay delta.
     """
     n_cpus = os.cpu_count() or 1
+    # utime/stime de /proc/<pid>/stat vienen en jiffies; los pasamos a
+    # segundos dividiendo por hz (SC_CLK_TCK) antes de calcular el %.
+    hz = os.sysconf("SC_CLK_TCK")
     prev = {}  # {pid: (utime_prev, stime_prev, ts_prev)}
 
     while True:
         datos = {}
         ahora = time.time()
+        pids_vistos = set(pids)  # snapshot actual: claves que deben quedar en prev
         for pid in pids:
             stat = procfs.leer_stat(pid)
             status = procfs.leer_status(pid)
@@ -47,7 +51,8 @@ def analizar(pids, snapshot, intervalos, verbose):
                 dt = ahora - ts_p
                 if dt > 0:
                     dj = (utime + stime) - (utime_p + stime_p)
-                    cpu_pct = round(100.0 * dj / (dt * n_cpus), 2)
+                    # dj está en jiffies → dividir por hz para tener segundos.
+                    cpu_pct = round(100.0 * (dj / hz) / (dt * n_cpus), 2)
             prev[pid] = (utime, stime, ahora)
 
             datos[pid] = {
@@ -62,6 +67,11 @@ def analizar(pids, snapshot, intervalos, verbose):
                 "stime": stime,
                 "cpu_pct": cpu_pct,
             }
+
+        # Limpiar prev: dejar solo pids que siguen en el snapshot actual.
+        for pid in list(prev.keys()):
+            if pid not in pids_vistos:
+                del prev[pid]
 
         escribir_slot(snapshot, "resumen", datos)
 

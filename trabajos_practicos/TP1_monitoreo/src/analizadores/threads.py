@@ -21,16 +21,21 @@ def analizar(pids, snapshot, intervalos, verbose):
     proceso == PID (thread líder).
     """
     n_cpus = os.cpu_count() or 1
+    # utime/stime de /proc/<pid>/task/<tid>/stat vienen en jiffies; los pasamos
+    # a segundos dividiendo por hz (SC_CLK_TCK) antes de calcular el %.
+    hz = os.sysconf("SC_CLK_TCK")
     prev = {}  # {pid: {tid: (utime_prev, stime_prev, ts_prev)}}
 
     while True:
         datos = {}
         ahora = time.time()
+        pids_vistos = set(pids)  # snapshot actual: claves que deben quedar en prev
         for pid in pids:
             tids = procfs.leer_tids(pid)
             if not tids and procfs.leer_status(pid) == {}:
                 continue
             threads = []
+            tids_vistos = set(tids)  # snapshot de tids: claves que deben quedar en prev[pid]
             if pid not in prev:
                 prev[pid] = {}
             for tid in tids:
@@ -46,7 +51,8 @@ def analizar(pids, snapshot, intervalos, verbose):
                     dt = ahora - ts_p
                     if dt > 0:
                         dj = (utime + stime) - (utime_p + stime_p)
-                        cpu_pct = round(100.0 * dj / (dt * n_cpus), 2)
+                        # dj está en jiffies → dividir por hz para tener segundos.
+                        cpu_pct = round(100.0 * (dj / hz) / (dt * n_cpus), 2)
                 prev[pid][tid] = (utime, stime, ahora)
                 threads.append({
                     "tid": tid,
@@ -56,7 +62,16 @@ def analizar(pids, snapshot, intervalos, verbose):
                     "stime": stime,
                     "cpu_pct": cpu_pct,
                 })
+            # Limpiar tids muertos dentro de este pid.
+            for tid in list(prev[pid].keys()):
+                if tid not in tids_vistos:
+                    del prev[pid][tid]
             datos[pid] = threads
+
+        # Limpiar pids muertos del nivel superior de prev.
+        for pid in list(prev.keys()):
+            if pid not in pids_vistos:
+                del prev[pid]
 
         escribir_slot(snapshot, "threads", datos)
         time.sleep(max(0.1, intervalos["threads"].value))
