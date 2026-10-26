@@ -1,0 +1,14 @@
+services:
+  api_tareas:
+    build: .
+    container_name: plataforma_tareas_tp2
+    ports:
+      - "8000:8000"
+    environment:
+      - WORKER_COUNT=4
+      - DEFAULT_TASK_TIMEOUT=60
+      - SHUTDOWN_TIMEOUT=10
+      - DUMP_DIR=/app/dumps
+    volumes:
+      - ./dumps:/app/dumps
+    restart: unless-stopped

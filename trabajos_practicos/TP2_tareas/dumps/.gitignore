@@ -1,0 +1,3 @@
+# Mantener directorio de volcados en control de versiones
+!.gitkeep
+*.json
